@@ -3,4 +3,4 @@
 ## Bubble Sort
 
 
-![bubbleSoas](https://user-images.githubusercontent.com/78089013/166586458-4a3995e4-e6de-4951-9cc2-5248d110f396.gif)
+![BubbleSort](https://user-images.githubusercontent.com/78089013/167018723-a12c56f6-ef04-4b0b-acfb-4c143ea3a97f.gif)
