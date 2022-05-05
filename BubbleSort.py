@@ -1,17 +1,27 @@
 import bpy
-from random import randint
-count = 100
+import random 
+
+count = 50
 cubes=[]
+locationList=[]
+scaleList=[]
+i = 1
+while i < count+1:
+    locationList.append(i)
+    scaleList.append(i)
+    i += 1
+random.shuffle(locationList)
+random.shuffle(scaleList)
 i = 0
 while i < count:
-    x = randint(1,10) 
-    cube = bpy.ops.mesh.primitive_cube_add(location=(x, 0, 0), scale=(0.25, 0.25, 0.25))  
-    i += 1
+    cube = bpy.ops.mesh.primitive_cube_add(location=(locationList[i], 0, 0), scale=(0.25, 0.25, 0.25))  
+    i+=1
+i = 0
 for ob in bpy.data.objects:
-    z = randint(1,10)
-    if ob.type == 'MESH':
-        ob.scale.z = z
+    if ob.type == 'MESH':    
+        ob.scale.z = scaleList[i]
         cubes.append(ob)
+        i += 1
 n = len(cubes)
 for i in range(n):
     already_sorted = True
