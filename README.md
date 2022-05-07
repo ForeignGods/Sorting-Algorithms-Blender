@@ -3,4 +3,5 @@
 ## Bubble Sort
 
 
-![BubbleSort](https://user-images.githubusercontent.com/78089013/167018723-a12c56f6-ef04-4b0b-acfb-4c143ea3a97f.gif)
+
+![BubbleSort](https://user-images.githubusercontent.com/78089013/167269106-fd49e626-1348-49a9-91b5-9d00b9b4063f.gif)
