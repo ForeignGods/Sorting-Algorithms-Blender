@@ -6,6 +6,10 @@ from mathutils import Vector, Matrix
 count = 50 
 cubes=[]
 
+#delete every existing object
+for ob in bpy.data.objects:   
+    bpy.data.objects.remove(ob)
+
 #delete every existing node_group 
 for grp in bpy.data.node_groups:
     bpy.data.node_groups.remove(grp)
