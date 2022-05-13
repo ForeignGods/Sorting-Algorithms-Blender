@@ -6,6 +6,10 @@ from mathutils import Vector, Matrix
 count = 50 
 cubes=[]
 
+#delete every existing node_group 
+for grp in bpy.data.node_groups:
+    bpy.data.node_groups.remove(grp)
+
 #delete every existing object
 for ob in bpy.data.objects:   
     bpy.data.objects.remove(ob)
@@ -33,8 +37,8 @@ arrayCounter = node_grp.nodes.new("FunctionNodeValueToString")
 groupOutput = node_grp.nodes.new('NodeGroupOutput')
 
 #90 degree rotation of the counter object
-transform.inputs[2].default_value[0] = 1.5708 #
-#set default values of some nodes. 
+transform.inputs[2].default_value[0] = 1.5708 
+#set default values of some nodes
 comparisonString.string = "Comparisons:"
 arrayString.string = "Array Accesses:"
 stringToCurves.inputs[1].default_value = 2
@@ -87,7 +91,6 @@ for i in range(count):
     for cube in cubes:
         cube.keyframe_insert(data_path="location", frame=i) 
     already_sorted = True
-    
     for j in range(count - i -1):
         
         #add 1 to comparison counter
