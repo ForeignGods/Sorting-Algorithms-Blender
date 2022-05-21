@@ -74,7 +74,10 @@ def origin_to_bottom(ob, matrix=Matrix()):
 #create cubes with random location
 for i in range(count):
     bpy.ops.mesh.primitive_cube_add(location=(ran[i], 0, 0), scale=(0.25, 0.25, 0.25))   
-      
+    
+#shuffle array
+random.shuffle(ran)
+  
 #assign random scale to all cubes and add them to array
 i = 0
 for ob in bpy.data.objects:
@@ -83,7 +86,10 @@ for ob in bpy.data.objects:
         ob.scale.z = ran[i]
         cubes.append(ob)
         i += 1
-         
+
+#sort array based on location.x        
+cubes.sort(key = lambda obj: obj.location.x)
+
 #bubble sort
 for i in range(count):    
     
@@ -118,3 +124,9 @@ for i in range(count):
             already_sorted = False
     if already_sorted:
         break
+
+
+    
+
+    
+    
