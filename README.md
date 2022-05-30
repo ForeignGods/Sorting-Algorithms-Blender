@@ -8,6 +8,10 @@
 
 ![Inerstio](https://user-images.githubusercontent.com/78089013/170041841-1c114899-1ada-4278-9865-6939774f373f.gif)
 
+## Selection Sort
+
+![SelectionSort](https://user-images.githubusercontent.com/78089013/171057662-f1bc5c22-5dcf-4242-ab0f-fe5a08bf4e1a.gif)
+
 ## Big O
 
 <table>
