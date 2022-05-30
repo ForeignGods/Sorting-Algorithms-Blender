@@ -57,7 +57,7 @@ node_grp.links.new(arrayCounter.outputs[0], joinStrings.inputs[1])
 node_grp.links.new(arrayString.outputs[0], joinStrings.inputs[1])
 
 #fill arrays with numbers between 1 & count
-ran = list(range(1,count+1))
+ran = list(range(0,count))
 
 #randomize array order
 random.shuffle(ran)
@@ -85,22 +85,36 @@ i = 0
 for ob in bpy.data.objects:
     if ob.type == 'MESH' and ob.name != "Counter":    
         origin_to_bottom(ob)
-        ob.scale.z = ran[i]
+        ob.scale.z = ran[i]+1
         cubes.append(ob)
         i += 1
 
 #sort array based on location.x        
 cubes.sort(key = lambda obj: obj.location.x)
+iframe = 0
 
 #Selection Sort ALgorithm
 def selection_sort(cubes):
+    
+    global iframe
+    
     for i in range(0, len(cubes)): 
         min_idx = i  
+        
+        for cube in cubes:
+            cube.keyframe_insert(data_path="location", frame= iframe)
+        
         for j in range(i , len(cubes)):
             if cubes[min_idx].scale.z > cubes[j].scale.z:   
                 min_idx = j
+        
         cubes[i].location.x = min_idx
         cubes[min_idx].location.x = i
+        
+        cubes[i].keyframe_insert(data_path="location", frame= iframe)
+        cubes[min_idx].keyframe_insert(data_path="location", frame= iframe)
+        iframe +=1
+        
         cubes[i], cubes[min_idx] = cubes[min_idx], cubes[i]
 
 #Call Function
