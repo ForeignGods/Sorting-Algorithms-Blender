@@ -57,7 +57,7 @@ node_grp.links.new(arrayCounter.outputs[0], joinStrings.inputs[1])
 node_grp.links.new(arrayString.outputs[0], joinStrings.inputs[1])
 
 #fill arrays with numbers between 1 & count
-ran = list(range(1,count+1))
+ran = list(range(0,count))
 
 #randomize array order
 random.shuffle(ran)
@@ -85,58 +85,80 @@ i = 0
 for ob in bpy.data.objects:
     if ob.type == 'MESH' and ob.name != "Counter":    
         origin_to_bottom(ob)
-        ob.scale.z = ran[i]
+        ob.scale.z = ran[i]+1
         cubes.append(ob)
         i += 1
 
 #sort array based on location.x        
 cubes.sort(key = lambda obj: obj.location.x)
 
-# Quick sort in Python
+iframe=0
+
 # function to find the partition position
 def partition(array, low, high):
-
-    # choose the rightmost element as pivot
-    pivot = array[high]
-
-    # pointer for greater element
-    i = low - 1
-
-    # traverse through all elements
-    # compare each element with pivot
-    for j in range(low, high):
-        if array[j].scale.z <= pivot.scale.z:
-        # if element smaller than pivot is found
-        # swap it with the greater element pointed by i
-            i = i + 1
-            array[i].location.x = j
-            array[j].location.x = i
+    
+    global iframe
             
-            # swapping element at i with element at j
-            (array[i], array[j]) = (array[j], array[i])
-
+    #add 1 to array counter
+    arrayCounter.inputs[0].default_value += 1
+    arrayCounter.inputs[0].keyframe_insert(data_path='default_value', frame=iframe)
+   
+    # choose the rightmost element as pivot
+    pivot = array[(high + low) // 2]
+    
+    # pointer for greater element
+    i = low 
+    j = high
+    while True:
         
-    # swap the pivot element with the greater element specified by i
-    array[i + 1].location.x = high
-    array[high].location.x = i + 1
-    (array[i + 1], array[high]) = (array[high], array[i + 1])
-
-    # return the position from where partition is done
-    return i + 1
+        iframe += 1
+        
+        for cube in cubes:
+            cube.keyframe_insert(data_path="location", frame=iframe)
+        
+        while array[i].scale.z < pivot.scale.z:
+            
+            #add 1 to comparison counter
+            comparisonCounter.inputs[0].default_value += 1
+            comparisonCounter.inputs[0].keyframe_insert(data_path='default_value', frame=iframe)
+            i += 1
+        
+        while array[j].scale.z > pivot.scale.z:
+            
+            #add 1 to comparison counter
+            comparisonCounter.inputs[0].default_value += 1
+            comparisonCounter.inputs[0].keyframe_insert(data_path='default_value', frame=iframe)
+            j -= 1
+        
+        if i >= j:
+            return j
+        
+        array[i].location.x = j
+        array[j].location.x = i
+            
+        array[i].keyframe_insert(data_path="location", frame=iframe)
+        array[j].keyframe_insert(data_path="location", frame=iframe)
+            
+        #add 4 to array counter
+        arrayCounter.inputs[0].default_value += 4
+        arrayCounter.inputs[0].keyframe_insert(data_path='default_value', frame=iframe)
+                
+        # swapping element at i with element at j
+        array[i], array[j] = array[j], array[i]
 
 # function to perform quicksort
 def quickSort(array, low, high):
-    if low < high:
-
+    if low < high: 
         # find pivot element such that
         # element smaller than pivot are on the left
         # element greater than pivot are on the right
         pi = partition(array, low, high)
 
         # recursive call on the left of pivot
-        quickSort(array, low, pi - 1)
+        quickSort(array, low, pi)
 
         # recursive call on the right of pivot
         quickSort(array, pi + 1, high)
+        
 
-
+quickSort(cubes, 0, len(cubes) - 1)
