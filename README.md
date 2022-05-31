@@ -16,6 +16,11 @@
 
 ![ShellSort](https://user-images.githubusercontent.com/78089013/171215871-4579c50c-f4ca-4f72-971c-1ebb644dfcb0.gif)
 
+## Quick Sort
+
+![QuickSort](https://user-images.githubusercontent.com/78089013/171301527-1f418de3-1af4-4b4c-8b41-c3fa4091d9bc.gif)
+
+
 ## Big O
 
 <table>
