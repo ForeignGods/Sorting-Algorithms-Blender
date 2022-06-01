@@ -18,8 +18,7 @@
 
 ## Quick Sort
 
-![QuickSort](https://user-images.githubusercontent.com/78089013/171301527-1f418de3-1af4-4b4c-8b41-c3fa4091d9bc.gif)
-
+![QuickSorty](https://user-images.githubusercontent.com/78089013/171415241-9cf86f0f-eff6-4f70-adaf-7f3e8687d1fa.gif)
 
 ## Big O
 
