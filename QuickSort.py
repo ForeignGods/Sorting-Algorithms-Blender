@@ -110,12 +110,7 @@ def partition(array, low, high):
     i = low 
     j = high
     while True:
-        
-        iframe += 1
-        
-        for cube in cubes:
-            cube.keyframe_insert(data_path="location", frame=iframe)
-        
+
         while array[i].scale.z < pivot.scale.z:
             
             #add 1 to comparison counter
@@ -132,6 +127,11 @@ def partition(array, low, high):
         
         if i >= j:
             return j
+        
+        else:
+            iframe += 1
+            for cube in cubes:
+                cube.keyframe_insert(data_path="location", frame=iframe)
         
         array[i].location.x = j
         array[j].location.x = i
