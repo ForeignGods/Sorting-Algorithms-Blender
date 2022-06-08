@@ -1,9 +1,10 @@
+from random import randint
 import bpy
 import random 
 from mathutils import Vector, Matrix
 
 #variables
-count = 50 
+count = 150
 cubes=[]
 
 #delete every existing node_group 
@@ -55,7 +56,7 @@ node_grp.links.new(arrayCounter.outputs[0], joinStrings.inputs[1])
 node_grp.links.new(arrayString.outputs[0], joinStrings.inputs[1])
 
 #fill arrays with numbers between 1 & count
-ran = list(range(1,count+1))
+ran = list(range(0,count))
 
 #randomize array order
 random.shuffle(ran)
@@ -83,66 +84,110 @@ i = 0
 for ob in bpy.data.objects:
     if ob.type == 'MESH' and ob.name != "Counter":    
         origin_to_bottom(ob)
-        ob.scale.z = ran[i]
+        ob.scale.z = ran[i]+1
         cubes.append(ob)
         i += 1
 
 #sort array based on location.x        
 cubes.sort(key = lambda obj: obj.location.x)
 
-def mergeSort(cubes):
-    if len(cubes) > 1:
-        mid = len(cubes) // 2
-        left = cubes[:mid]
-        right = cubes[mid:]
-             
-        # Recursive call on each half
-        mergeSort(left)
-        mergeSort(right)
-        
-        # Two iterators for traversing the two halves
-        i = 0
-        j = 0
-        
-        # Iterator for the main list
-        k = 0
-        
-        while i < len(left) and j < len(right):
-            if left[i].scale.z <= right[j].scale.z:
-        
-                left[i].location.x = k
-                
-                # The value from the left half has been used
-                cubes[k] = left[i]
-                
-                # Move the iterator forward
-                i += 1
-            else:
-                
-                right[j].location.x = k
-             
-                cubes[k] = right[j]
-                
-                j += 1
-                # Move to the next slot
-            k += 1
-        # For all the remaining values
-        while i < len(left):
-            
-            left[i].location.x = k               
+def merge(arr, l, m, r):
+    
+    global array
+    global iframe
 
-            cubes[k] = left[i]
-            
+    
+    n1 = m - l + 1
+    n2 = r - m
+ 
+    # create temp arrays
+    L = [0] * (n1)
+    R = [0] * (n2)
+
+    # Copy data to temp arrays L[] and R[]
+    for i in range(0, n1):
+        L[i] = arr[l + i]
+
+    for j in range(0, n2):
+        R[j] = arr[m + 1 + j]
+
+    # Merge the temp arrays back into arr[l..r]
+    i = 0     # Initial index of first subarray
+    j = 0     # Initial index of second subarray
+    k = l     # Initial index of merged subarray
+    
+    while i < n1 and j < n2:
+        if L[i].scale.z <= R[j].scale.z:
+            arr[k] = L[i]
+         
+            L[i].location.x = k 
+
             i += 1
-            k += 1
-        while j < len(right):
+        else:
+            arr[k] = R[j]
             
-            right[j].location.x = k              
-
-            cubes[k]=right[j]
+            R[j].location.x = k 
             
             j += 1
-            k += 1
+        k += 1
 
-#start recursion
-mergeSort(cubes)
+        for cube in array:
+            cube.keyframe_insert(data_path="location", frame=iframe) 
+        for cube in L:
+            cube.keyframe_insert(data_path="location", frame=iframe)
+        for cube in R:
+            cube.keyframe_insert(data_path="location", frame=iframe)
+
+        iframe += 1
+
+    # Copy the remaining elements of L[], if there
+    # are any
+    while i < n1:
+        arr[k] = L[i]
+        L[i].location.x = k 
+        
+        x=0
+        for cube in array:
+            cube.keyframe_insert(data_path="location", frame=iframe) 
+        for cube in L:
+            cube.keyframe_insert(data_path="location", frame=iframe)
+        for cube in R:
+            cube.keyframe_insert(data_path="location", frame=iframe)
+        iframe += 1
+   
+        i += 1
+        k += 1
+ 
+    # Copy the remaining elements of R[], if there
+    # are any
+    while j < n2:
+        arr[k] = R[j]
+        
+        R[j].location.x = k 
+        for cube in array:
+            cube.keyframe_insert(data_path="location", frame=iframe) 
+        for cube in L:
+            cube.keyframe_insert(data_path="location", frame=iframe)
+        for cube in R:
+            cube.keyframe_insert(data_path="location", frame=iframe)
+        iframe+=1
+ 
+        j += 1
+        k += 1
+# l is for left index and r is right index of the
+# sub-array of arr to be sorted
+
+def mergeSort(arr, l, r):
+    if l < r:
+ 
+        # Same as (l+r)//2, but avoids overflow for
+        # large l and h
+        m = l+(r-l)//2
+        # Sort first and second halves
+        mergeSort(arr, l, m)
+        mergeSort(arr, m+1, r)
+        merge(arr, l, m, r)
+
+iframe = 0
+array = cubes
+mergeSort(cubes, 0, count-1)
