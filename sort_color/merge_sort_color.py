@@ -6,56 +6,125 @@ from math import pi
 import numpy as np
 
 ############################################################
-# Bubble Sort Algorithm
+# Merge Sort Algorithm
 ############################################################
-        
-def bubble_sort(arr, count):
-    for i in range(count):    
-        
-        #insert keyframe for every cube on every frame
-        for cube in arr:
-            cube.keyframe_insert(data_path="location", frame=i) 
 
-        already_sorted = True
-        for j in range(count - i -1):
-            
-            #get materials
-            mat1 = arr[j].active_material.diffuse_color
-            mat2 = arr[j + 1].active_material.diffuse_color
-            
-            #get R value of both materials
-            r1 = mat1[0]
-            r2 = mat2[0]
-            
-            #get G value of both materials
-            g1 = mat1[1]
-            g2 = mat2[1]
+def merge(seed, arr, l, m, r):
+    
+    global Matrix
+    global iframe
+
+    
+    n1 = m - l + 1
+    n2 = r - m
+ 
+    # create temp arrays
+    L = [0] * (n1)
+    R = [0] * (n2)
+
+    # Copy data to temp arrays L[] and R[]
+    for i in range(0, n1):
+        L[i] = arr[l + i]
+
+    for j in range(0, n2):
+        R[j] = arr[m + 1 + j]
+
+    # Merge the temp arrays back into arr[l..r]
+    i = 0     # Initial index of first subarray
+    j = 0     # Initial index of second subarray
+    k = l     # Initial index of merged subarray
+    
+    while i < n1 and j < n2:
+        
+        mat1 = L[i].active_material.diffuse_color
+        mat2 = R[j].active_material.diffuse_color
          
-            # R + G = value for comparison
-            rg1 = r1 + g1
-            rg2 = r2 + g2
-            
-            #compare first colorarray values
-            if rg1 > rg2: 
-            
-                #change location & insert keyframes based on bubble sort
-                arr[j].location.x = (j+1)*2
-                arr[j].keyframe_insert(data_path="location", frame=i+1)
+        #get R value of both materials
+        r1 = mat1[0]
+        r2 = mat2[0]
+        
+        #get G value of both materials
+        g1 = mat1[1]
+        g2 = mat2[1]
+     
+        # R + G = value for comparison
+        rg1 = r1 + g1
+        rg2 = r2 + g2
+        
+        if rg1 <= rg2:
+            arr[k] = L[i]
+         
+            L[i].location.x = k * 2
 
-                arr[j+1].location.x = j*2
-                arr[j+1].keyframe_insert(data_path="location", frame=i+1)       
-                
-                #rearrange arrays
-                arr[j], arr[j + 1] = arr[j + 1], arr[j]
-                already_sorted = False
-                
-        if already_sorted:
-            break
+            i += 1
+        else:
+            arr[k] = R[j]
+            
+            R[j].location.x = k * 2
+            
+            j += 1
+        k += 1
+
+        for cube in Matrix[seed]:
+            cube.keyframe_insert(data_path="location", frame=iframe) 
+        for cube in L:
+            cube.keyframe_insert(data_path="location", frame=iframe)
+        for cube in R:
+            cube.keyframe_insert(data_path="location", frame=iframe)
+
+        iframe += 1
+
+    # Copy the remaining elements of L[], if there
+    # are any
+    while i < n1:
+        arr[k] = L[i]
+        L[i].location.x = k * 2
+        
+        x=0
+        for cube in Matrix[seed]:
+            cube.keyframe_insert(data_path="location", frame=iframe) 
+        for cube in L:
+            cube.keyframe_insert(data_path="location", frame=iframe)
+        for cube in R:
+            cube.keyframe_insert(data_path="location", frame=iframe)
+        iframe += 1
+   
+        i += 1
+        k += 1
+ 
+    # Copy the remaining elements of R[], if there
+    # are any
+    while j < n2:
+        arr[k] = R[j]
+        
+        R[j].location.x = k * 2
+        for cube in Matrix[seed]:
+            cube.keyframe_insert(data_path="location", frame=iframe) 
+        for cube in L:
+            cube.keyframe_insert(data_path="location", frame=iframe)
+        for cube in R:
+            cube.keyframe_insert(data_path="location", frame=iframe)
+        iframe+=1
+ 
+        j += 1
+        k += 1
+# l is for left index and r is right index of the
+# sub-array of arr to be sorted
+
+def merge_sort(seed, iframe,arr, l, r):
+    if l < r:
+ 
+        # Same as (l+r)//2, but avoids overflow for
+        # large l and h
+        m = l+(r-l)//2
+        # Sort first and second halves
+        merge_sort(seed, iframe,arr, l, m)
+        merge_sort(seed, iframe, arr, m+1, r)
+        merge(seed, arr, l, m, r)
         
 ############################################################
 # Setup Random Colors + Array to be sorted
 ############################################################
-
 def setup_array(count):
 
     #fill array with numbers between 0 & count - 1
@@ -148,6 +217,7 @@ def setup_array(count):
 #setup_array(number of planes)
 Matrix, count = setup_array(26)#only even numbers are valid
 
-#sorting every subarray with bubble_sort + visualisation
+#sorting every subarray with merge_sort + visualisation
 for i in range(count):
-    bubble_sort(Matrix[i], count)
+    iframe = 0
+    merge_sort(i,iframe,Matrix[i],  0, count-1)
