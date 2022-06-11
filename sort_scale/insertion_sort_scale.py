@@ -6,7 +6,7 @@ from mathutils import Vector, Matrix
 # Insertion Sort Algorithm
 ############################################################
 
-def insertionSort(cubes, arrayCounter, comparisonCounter):
+def insertion_sort(cubes, arrayCounter, comparisonCounter):
     #start at frame 0
     iframe=0
     originFrame = 0 
@@ -18,8 +18,8 @@ def insertionSort(cubes, arrayCounter, comparisonCounter):
          
         j = i - 1
         
-        #add 2 to array counter
-        arrayCounter.inputs[0].default_value += 2
+        #add 1 to array counter
+        arrayCounter.inputs[0].default_value += 1
         arrayCounter.inputs[0].keyframe_insert(data_path='default_value', frame=iframe)
         
         while j >= 0 and cubes[j].scale.z > key_item.scale.z:
@@ -36,8 +36,8 @@ def insertionSort(cubes, arrayCounter, comparisonCounter):
             for cube in cubes:
                 cube.keyframe_insert(data_path="location", frame=iframe)       
             
-            #add 2 to array counter
-            arrayCounter.inputs[0].default_value += 2
+            #add 3 to array counter
+            arrayCounter.inputs[0].default_value += 3
             arrayCounter.inputs[0].keyframe_insert(data_path='default_value', frame=iframe)
             
             #add 1 to comparison counter
@@ -73,10 +73,9 @@ def insertionSort(cubes, arrayCounter, comparisonCounter):
 # Setup Random Cubes + Array to be sorted
 ############################################################
 
-def setUpCubeArray():
+def setup_array(count):
 
-    #variables
-    count = 50 
+    #initialize array
     cubes=[]
 
     #delete every existing node_group 
@@ -170,12 +169,6 @@ def setUpCubeArray():
 # Call Functions
 ############################################################
 
-cubes, arrayCounter, comparisonCounter = setUpCubeArray()
+cubes, arrayCounter, comparisonCounter = setup_array(12)
 
-insertionSort(cubes, arrayCounter, comparisonCounter)
-
-
-    
-
-    
-    
+insertion_sort(cubes, arrayCounter, comparisonCounter)
