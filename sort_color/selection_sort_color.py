@@ -82,7 +82,7 @@ def setup_array(count):
     #first half 0 --> 0, second half 0 --> 200
     colors_g = [0 for i in range(count)]
     colors_g1 = np.linspace(0, 0, count//2)
-    colors_g2 = np.linspace(0, 200, count//2)
+    colors_g2 = np.linspace(1, 200, count//2)
     for i in range(count):  
         if(i < count//2):
             colors_g[i]=colors_g1[i]
