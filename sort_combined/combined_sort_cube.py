@@ -23,17 +23,8 @@ def selection_sort(arr, count, iframe):
             mat1 = arr[min_idx].active_material.diffuse_color
             mat2 = arr[j].active_material.diffuse_color
             
-            #get R value of both materials
-            r1 = mat1[0]
-            r2 = mat2[0]
-            
-            #get G value of both materials
-            g1 = mat1[1]
-            g2 = mat2[1]
-         
-            #R + G = value for comparison
-            rg1 = r1 + g1
-            rg2 = r2 + g2
+            #get RG values from materials
+            rg1, rg2 = get_rg(mat1, mat2)
             
             if rg1 > rg2:   
                 min_idx = j
@@ -69,66 +60,30 @@ def partition(seed, array, low, high):
         mat1 = array[i].active_material.diffuse_color
         mat2 = pivot.active_material.diffuse_color
         
-        #get R value of both materials
-        r1 = mat1[0]
-        r2 = mat2[0]
-        
-        #get G value of both materials
-        g1 = mat1[1]
-        g2 = mat2[1]
-     
-        #R + G = value for comparison
-        rg1 = r1 + g1
-        rg2 = r2 + g2
+        #get RG values from materials
+        rg1, rg2 = get_rg(mat1, mat2)
         
         while rg1 < rg2:
             i += 1
             mat1 = array[i].active_material.diffuse_color
             mat2 = pivot.active_material.diffuse_color
             
-            #get R value of both materials
-            r1 = mat1[0]
-            r2 = mat2[0]
-            
-            #get G value of both materials
-            g1 = mat1[1]
-            g2 = mat2[1]
-         
-            #R + G = value for comparison
-            rg1 = r1 + g1
-            rg2 = r2 + g2
+            #get RG values from materials
+            rg1, rg2 = get_rg(mat1, mat2)
         
-        mat3 = array[j].active_material.diffuse_color
-        mat4 = pivot.active_material.diffuse_color
+        mat1 = array[j].active_material.diffuse_color
+        mat2 = pivot.active_material.diffuse_color
         
-        #get R value of both materials
-        r3 = mat3[0]
-        r4 = mat4[0]
+        #get RG values from materials
+        rg1, rg2 = get_rg(mat1, mat2)
         
-        #get G value of both materials
-        g3 = mat3[1]
-        g4 = mat4[1]
-     
-        #R + G = value for comparison
-        rg3 = r3 + g3
-        rg4 = r4 + g4
-        
-        while rg3 > rg4:
+        while rg1 > rg2:
             j -= 1
-            mat3 = array[j].active_material.diffuse_color
-            mat4 = pivot.active_material.diffuse_color
+            mat1 = array[j].active_material.diffuse_color
+            mat2 = pivot.active_material.diffuse_color
             
-            #get R value of both materials
-            r3 = mat3[0]
-            r4 = mat4[0]
-            
-            #get G value of both materials
-            g3 = mat3[1]
-            g4 = mat4[1]
-         
-            # R + G = value for comparison
-            rg3 = r3 + g3
-            rg4 = r4 + g4
+            #get RG values from materials
+            rg1, rg2 = get_rg(mat1, mat2)
         
         if i >= j:
             return j
@@ -195,17 +150,8 @@ def merge(seed, arr, l, m, r):
         mat1 = L[i].active_material.diffuse_color
         mat2 = R[j].active_material.diffuse_color
          
-        #get R value of both materials
-        r1 = mat1[0]
-        r2 = mat2[0]
-        
-        #get G value of both materials
-        g1 = mat1[1]
-        g2 = mat2[1]
-     
-        #R + G = value for comparison
-        rg1 = r1 + g1
-        rg2 = r2 + g2
+        #get RG values from materials
+        rg1, rg2 = get_rg(mat1, mat2)
         
         if rg1 <= rg2:
             arr[k] = L[i]
@@ -277,7 +223,7 @@ def merge_sort(seed,arr, l, r):
 ############################################################
 # Insertion Sort Algorithm
 ############################################################
-
+        
 def insertion_sort(arr, count, iframe):
     
     #start at frame 0
@@ -295,17 +241,8 @@ def insertion_sort(arr, count, iframe):
         mat1 = arr[j].active_material.diffuse_color
         mat2 = key_item.active_material.diffuse_color
         
-        #get R value of both materials
-        r1 = mat1[0]
-        r2 = mat2[0]
-        
-        #get G value of both materials
-        g1 = mat1[1]
-        g2 = mat2[1]
-     
-        # R + G = value for comparison
-        rg1 = r1 + g1
-        rg2 = r2 + g2
+        #get RG values from materials
+        rg1, rg2 = get_rg(mat1, mat2)
         
         while j >= 0 and rg1 > rg2:
 
@@ -322,17 +259,8 @@ def insertion_sort(arr, count, iframe):
             mat1 = arr[j].active_material.diffuse_color
             mat2 = key_item.active_material.diffuse_color
             
-            #get R value of both materials
-            r1 = mat1[0]
-            r2 = mat2[0]
-            
-            #get G value of both materials
-            g1 = mat1[1]
-            g2 = mat2[1]
-         
-            # R + G = value for comparison
-            rg1 = r1 + g1
-            rg2 = r2 + g2
+            #get RG values from materials
+            rg1, rg2 = get_rg(mat1, mat2)
             
             #adding keyframes to all planes whenever one position/location is shifted
             for plane in arr:
@@ -358,7 +286,6 @@ def insertion_sort(arr, count, iframe):
             x += 1
         
         originFrame = iframe
-        iframe = originFrame + (origin - target)
         
     return iframe
 
@@ -380,17 +307,8 @@ def bubble_sort(arr, count, iframe):
             mat1 = arr[j].active_material.diffuse_color
             mat2 = arr[j + 1].active_material.diffuse_color
             
-            #get R value of both materials
-            r1 = mat1[0]
-            r2 = mat2[0]
-            
-            #get G value of both materials
-            g1 = mat1[1]
-            g2 = mat2[1]
-         
-            # R + G = value for comparison
-            rg1 = r1 + g1
-            rg2 = r2 + g2
+            #get RG values from materials
+            rg1, rg2 = get_rg(mat1, mat2)
             
             #compare first colorarray values
             if rg1 > rg2: 
@@ -439,18 +357,10 @@ def shell_sort(arr, count, iframe):
                 mat1 = arr[i+gap].active_material.diffuse_color
                 mat2 = arr[i].active_material.diffuse_color
                 
-                #get R value of both materials
-                r1 = mat1[0]
-                r2 = mat2[0]
+                #get RG values from materials
+                rg1, rg2 = get_rg(mat1, mat2)
                 
-                #get G value of both materials
-                g1 = mat1[1]
-                g2 = mat2[1]
-             
-                # R + G = value for comparison
-                rg1 = r1 + g1
-                rg2 = r2 + g2
-                
+                #compare RG values
                 if rg1 > rg2:
                     break
                 
@@ -475,6 +385,8 @@ def shell_sort(arr, count, iframe):
 ############################################################
 
 def setup_array(count, variation):
+
+    print(str(variation)+ "/6 start setup_array") 
 
     #fill array with numbers between 0 & count - 1
     index = list(range(count))
@@ -545,11 +457,16 @@ def setup_array(count, variation):
             colors_b[i]=colors_b1[i]
         else:
             colors_b[i]=colors_b2[i-count//2]
-         
+    
+    print("variables initialized and color arrays created")     
+   
     #creating count * count planes with location.x = j * 2 and location.z = i * 2
     for i in range(count):
         for j in range(count):
             bpy.ops.mesh.primitive_plane_add(location=(j*2, 0, i*2), rotation=(pi / 2, 0, 0), scale=(0.1, 0.1, 0.1)) 
+            planes[j+i*count] = bpy.context.active_object
+    
+    print("planes created and added to array") 
     
     #create parent for pivot point
     bpy.ops.mesh.primitive_plane_add(location=(0, offset, 0), rotation=(pi / 2, 0, 0), scale=(0.1, 0.1, 0.1))
@@ -570,19 +487,14 @@ def setup_array(count, variation):
     bpy.ops.transform.resize(value=(count, 1, count))
         
     #adding all planes to an array and parenting
-    i=0
-    for ob in bpy.data.objects:
-        fullstring = ob.name
-        if fullstring.find("Parent") == -1 and ob.parent == None:
-            #set parent and apply transform to avoid distortion
-            bpy.ops.object.transform_apply(location=True, rotation=True, scale=True)
-            parent = bpy.data.objects["Parent"+str(variation)]
-            ob.parent = parent
-            
-            planes[i]= ob
-            
-            i+=1
-    
+    for plane in planes:
+        #set parent and apply transform to avoid distortion
+        bpy.ops.object.transform_apply(location=True, rotation=True, scale=True)
+        parent = bpy.data.objects["Parent"+str(variation)]
+        plane.parent = parent
+        
+    print("added planes to parent")
+        
     #set origin to cursor again
     bpy.ops.object.origin_set(type='ORIGIN_CURSOR', center='MEDIAN')
     
@@ -604,6 +516,8 @@ def setup_array(count, variation):
                 material.diffuse_color = (colors_r[i], colors_g[i], colors_b[i], 255)
                 materials[i] = material  
     
+    print("material array created")
+    
     #add materials to planes and planes to 2d array              
     for i in range(count):
         #randomize distribution of colors for every row
@@ -611,8 +525,29 @@ def setup_array(count, variation):
         for j in range(count):
                 planes[j+i*count].data.materials.append(materials[j]) #add the material to the object
                 Matrix[i][j] = planes[j+i*count]
+                
+    print("appended materials to planes")
      
     return(Matrix, count)
+
+############################################################
+# Get R and G Values from Material
+############################################################
+
+def get_rg(mat1, mat2):
+    #get R value of both materials
+    r1 = mat1[0]
+    r2 = mat2[0]
+    
+    #get G value of both materials
+    g1 = mat1[1]
+    g2 = mat2[1]
+    
+    # R + G = value for comparison
+    rg1 = r1 + g1
+    rg2 = r2 + g2
+
+    return rg1, rg2
 
 ############################################################
 # Call Functions
@@ -628,66 +563,88 @@ for ob in bpy.data.objects:
 #delete all existing materials
 for material in bpy.data.materials:
         bpy.data.materials.remove(material, do_unlink=True)
-        
-main_frame = 0
 
+#start at frame 0
+main_frame = 0
 Matrix1, count1 = setup_array(size, 1)
 
 #shell_sort every array
-highest_iframe = 0
+print("starting shell_sort")
+highest_1_iframe = 0
 for i in range(count1):
     iframe = shell_sort(Matrix1[i], count1, main_frame)
-    if iframe > highest_iframe:  
-        highest_iframe = iframe
-        
-main_frame = highest_iframe   
+    if iframe > highest_1_iframe:  
+        highest_1_iframe = iframe
+print("shell_sort completed")
+print("---------------------------------------")
+highest_1_iframe += 25       
+main_frame = highest_1_iframe 
+
 Matrix2, count2 = setup_array(size, 2)
 
 #insertion_sort every array
-highest_iframe = 0
+print("starting inertion_sort")
+highest_2_iframe = 0
 for i in range(count2):
     iframe = insertion_sort(Matrix2[i], count2, main_frame)
-    if iframe > highest_iframe:  
-        highest_iframe = iframe
-    
-main_frame = highest_iframe 
+    if iframe > highest_2_iframe:  
+        highest_2_iframe = iframe     
+print("insertion_sort completed")
+print("---------------------------------------")
+highest_2_iframe += 25      
+main_frame = highest_2_iframe 
+
 Matrix3, count3 = setup_array(size, 3)
 
 #bubble_sort every array
-highest_iframe = 0
+print("starting bubble_sort")
+highest_3_iframe = 0
 for i in range(count3):
     iframe = bubble_sort(Matrix3[i], count3, main_frame)
-    if iframe > highest_iframe:  
-        highest_iframe = iframe
+    if iframe > highest_3_iframe:  
+        highest_3_iframe = iframe
+print("bubble_sort completed")
+print("---------------------------------------")
+highest_3_iframe += 25  
+main_frame = highest_3_iframe
 
-main_frame = highest_iframe     
 Matrix4, count4 = setup_array(size, 4)
 
 #quick_sort every array
-highest_iframe = 0
+highest_4_iframe = 0
+print("starting quick_sort")
 for i in range(count4):
     iframe = main_frame
     quick_sort(i, Matrix4[i], 0, count4 - 1)
-    if iframe > highest_iframe:  
-        highest_iframe = iframe
-    
-main_frame = highest_iframe     
+    if iframe > highest_4_iframe:  
+        highest_4_iframe = iframe
+print("quick_sort completed")
+print("---------------------------------------")
+highest_4_iframe += 25      
+main_frame = highest_4_iframe    
+
 Matrix5, count5 = setup_array(size, 5)
 
 #selection_sort every array
-highest_iframe = 0
+print("starting selection shell_sort")
+highest_5_iframe = 0
 for i in range(count5):
     iframe = selection_sort(Matrix5[i], count5, main_frame)
-    if iframe > highest_iframe:  
-        highest_iframe = iframe
+    if iframe > highest_5_iframe:  
+        highest_5_iframe = iframe
+print("selection_sort completed")
+print("---------------------------------------")
+highest_5_iframe += 25  
+main_frame = highest_5_iframe
 
-main_frame = highest_iframe     
 Matrix6, count6 = setup_array(size, 6)
 
 #merge_sort every array
+print("starting merge_sort")
 for i in range(count6):
     iframe = main_frame
     merge_sort(i,Matrix6[i],  0, count6-1)
+print("merge_sort completed")
 
 #rename every parent to the belonging sorting algorithm
 bpy.data.objects["Parent1"].name = "shell_sort"
@@ -696,3 +653,48 @@ bpy.data.objects["Parent3"].name = "bubble_sort"
 bpy.data.objects["Parent4"].name = "quick_sort"
 bpy.data.objects["Parent5"].name = "selection_sort"
 bpy.data.objects["Parent6"].name = "merge_sort"
+
+#create pivot object
+bpy.ops.mesh.primitive_cube_add(location=(size, -size, size), rotation=(0, 0, 0), scale=(0.1, 0.1, 0.1))
+middle_pivot = bpy.data.objects["Cube"]
+middle_pivot.name = "middle_pivot"
+
+bpy.data.objects["shell_sort"].parent = middle_pivot
+bpy.data.objects["shell_sort"].matrix_parent_inverse = middle_pivot.matrix_world.inverted()
+
+bpy.data.objects["insertion_sort"].parent = middle_pivot
+bpy.data.objects["insertion_sort"].matrix_parent_inverse = middle_pivot.matrix_world.inverted()
+
+bpy.data.objects["bubble_sort"].parent = middle_pivot
+bpy.data.objects["bubble_sort"].matrix_parent_inverse = middle_pivot.matrix_world.inverted()
+
+bpy.data.objects["quick_sort"].parent = middle_pivot
+bpy.data.objects["quick_sort"].matrix_parent_inverse = middle_pivot.matrix_world.inverted()
+
+bpy.data.objects["selection_sort"].parent = middle_pivot
+bpy.data.objects["selection_sort"].matrix_parent_inverse = middle_pivot.matrix_world.inverted()
+
+bpy.data.objects["merge_sort"].parent = middle_pivot
+bpy.data.objects["merge_sort"].matrix_parent_inverse = middle_pivot.matrix_world.inverted()
+
+middle_pivot.rotation_euler[0] = math.radians(0)
+middle_pivot.keyframe_insert(data_path="rotation_euler", frame= highest_1_iframe-25)
+
+middle_pivot.rotation_euler[0] = math.radians(90)
+middle_pivot.keyframe_insert(data_path="rotation_euler", frame= highest_1_iframe)
+
+middle_pivot.keyframe_insert(data_path="rotation_euler", frame= highest_2_iframe-25)
+middle_pivot.rotation_euler[0] = math.radians(180)
+middle_pivot.keyframe_insert(data_path="rotation_euler", frame= highest_2_iframe)
+
+middle_pivot.keyframe_insert(data_path="rotation_euler", frame= highest_3_iframe-25)
+middle_pivot.rotation_euler[0] = math.radians(270)
+middle_pivot.keyframe_insert(data_path="rotation_euler", frame= highest_3_iframe)
+
+middle_pivot.keyframe_insert(data_path="rotation_euler", frame= highest_4_iframe-25)
+middle_pivot.rotation_euler[2] = math.radians(-90)
+middle_pivot.keyframe_insert(data_path="rotation_euler", frame= highest_4_iframe)
+
+middle_pivot.keyframe_insert(data_path="rotation_euler", frame= highest_5_iframe-25)
+middle_pivot.rotation_euler[2] = math.radians(90)
+middle_pivot.keyframe_insert(data_path="rotation_euler", frame= highest_5_iframe)
