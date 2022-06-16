@@ -44,7 +44,8 @@ Its name comes from the way the algorithm works: With every new pass, the larges
 
 Bubble sort consists of making multiple passes through a list, comparing elements one by one, and swapping adjacent items that are out of order. 
 
-![bubble](https://user-images.githubusercontent.com/78089013/167689895-ba7e3ddd-6ea9-41e0-8767-0700b12b6664.gif)
+![bubble_sort](https://user-images.githubusercontent.com/78089013/174016660-f61f32b7-4add-4cfd-89cd-3ee280662cab.gif)
+
 <a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_scale/bubble_sort_scale.py" target="_blank">Script</a>
 
 ## Insertion Sort
@@ -52,7 +53,9 @@ Bubble sort consists of making multiple passes through a list, comparing element
 Like bubble sort, the insertion sort algorithm is straightforward to implement and understand.<br>
 But unlike bubble sort, it builds the sorted list one element at a time by comparing each item with the rest of the list and inserting it into its correct position.
 This “insertion” procedure gives the algorithm its name.
-![Inerstio](https://user-images.githubusercontent.com/78089013/170041841-1c114899-1ada-4278-9865-6939774f373f.gif)
+
+![InsertionSort](https://user-images.githubusercontent.com/78089013/174021742-ac80a35f-8d1e-42b3-a2b7-ce3651ddb6a9.gif)
+
 <a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_scale/insertion_sort_scale.py" target="_blank">Script</a>
 
 ## Selection Sort
@@ -64,7 +67,8 @@ The selection sort algorithm sorts an array by repeatedly finding the minimum el
 </ul>
 In every iteration of selection sort, the minimum element (considering ascending order) from the unsorted subarray is picked and moved to the sorted subarray. 
 
-![SelectionSort](https://user-images.githubusercontent.com/78089013/171057662-f1bc5c22-5dcf-4242-ab0f-fe5a08bf4e1a.gif)
+![SelectionSort](https://user-images.githubusercontent.com/78089013/174022742-3d261ea2-bf3b-4667-bfa8-15b5d2bc31cb.gif)
+
 <a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_scale/selection_sort_scale.py" target="_blank">Script</a>
 
 ## Shell Sort
@@ -78,7 +82,8 @@ The array is divided into sub-arrays and then insertion sort is applied. The alg
 <li>Repeat this process until the complete list is sorted.</li>
 </ul>
 
-![ShellSort](https://user-images.githubusercontent.com/78089013/171215871-4579c50c-f4ca-4f72-971c-1ebb644dfcb0.gif)
+![ShellSort](https://user-images.githubusercontent.com/78089013/174024463-95298191-42a6-47f1-928f-0256312845c9.gif)
+
 <a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_scale/shell_sort_scale.py" target="_blank">Script</a>
 
 ## Merge Sort
@@ -90,6 +95,8 @@ We have to define the merge() function to perform the merging.
 The sub-lists are divided again and again into halves until the list cannot be divided further.<br>
 Then we combine the pair of one element lists into two-element lists, sorting them in the process.<br>
 The sorted two-element pairs is merged into the four-element lists, and so on until we get the sorted list.
+
+![MergeSort](https://user-images.githubusercontent.com/78089013/174027221-f2bf50e9-bfa1-4939-9912-91abea95a8da.gif)
 
 <a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_scale/merge_sort_scale.py" target="_blank">Script</a>
 
@@ -106,7 +113,7 @@ Like Merge Sort, QuickSort is a Divide and Conquer algorithm. It picks an elemen
 The key process in quickSort is partition(). Target of partitions is, given an array and an element x of array as pivot, put x at its correct position in sorted array and put all smaller elements (smaller than x) before x, and put all greater elements (greater than x) after x.<br>
 All this should be done in linear time.
 
-![QuickSorty](https://user-images.githubusercontent.com/78089013/171415241-9cf86f0f-eff6-4f70-adaf-7f3e8687d1fa.gif)
+![QuickSort](https://user-images.githubusercontent.com/78089013/174030117-76744405-67c9-471d-9ee0-f323c48af5e2.gif)
 
 <a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_scale/quick_sort_scale.py" target="_blank">Script</a>
 
