@@ -74,7 +74,7 @@ def setup_array(count):
     
     #first half 0 --> 255, second half 255 --> 255
     colors_r = [0 for i in range(count)]
-    colors_r1 = np.linspace(0, 255, count//2)
+    colors_r1 = np.linspace(0, 254, count//2)
     colors_r2 = np.linspace(255, 255, count//2)
     for i in range(count):  
         if(i < count//2):
@@ -85,7 +85,7 @@ def setup_array(count):
     #first half 0 --> 0, second half 0 --> 200
     colors_g = [0 for i in range(count)]
     colors_g1 = np.linspace(0, 0, count//2)
-    colors_g2 = np.linspace(1, 200, count//2)
+    colors_g2 = np.linspace(10, 200, count//2)
     for i in range(count):  
         if(i < count//2):
             colors_g[i]=colors_g1[i]
@@ -95,7 +95,7 @@ def setup_array(count):
     #first half 200 --> 0, secondhalf 0 --> 100
     colors_b = [0 for i in range(count)]
     colors_b1 = np.linspace(200, 0, count//2)
-    colors_b2 = np.linspace(0, 100, count//2)
+    colors_b2 = np.linspace(10, 100, count//2)
     for i in range(count):  
         if(i < count//2):
             colors_b[i]=colors_b1[i]
