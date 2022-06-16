@@ -24,12 +24,12 @@ Table of contents
 Description
 ===========
 Running one of the scripts in this project generates primitive meshes in Blender, wich are animated to visualize various sorting algorithms.<br>
-The three folders (sort_color, sort_combined, sort_scale) contain three different types of visualisation.
+The three folders <strong>(sort_color, sort_combined, sort_scale)</strong> contain three different types of visualisation.
 
 <ul>
-<li>2D array of planes arragned into a square sorted based on color</li>
-<li>multiple 2D arrays of planes arragned into a cube sorted based on color</li>
-<li>array of cuboids sorted based on height + array access and comparison counter</li>
+<li><a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_color" target="_blank"><strong>sort_color: </strong></a>2D array of planes arragned into a square sorted based on color </li>
+<li><a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_combined" target="_blank"><strong>sort_combined: </strong></a>multiple 2D arrays of planes arragned into a cube sorted based on color</li>
+<li><a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_scale" target="_blank"><strong>sort_scale: </strong></a>array of cuboids sorted based on height + array access and comparison counter</li>
 </ul>
 
 [comment]: <> (Why you used the technologies you usedSome of the challenges you faced and features you hope to implement in the future4. How to Install and Run the ProjectIf you are working on a project that a user needs to install or run locally in a machine like a "POS", you should include the steps required to install your project and also the required dependencies if any.Provide a step-by-step description of how to get the development environment set and running.)
@@ -43,10 +43,9 @@ Bubble sort is one of the most straightforward sorting algorithms.<br>
 Its name comes from the way the algorithm works: With every new pass, the largest element in the list “bubbles up” toward its correct position. 
 
 Bubble sort consists of making multiple passes through a list, comparing elements one by one, and swapping adjacent items that are out of order. 
-
-![BubbleSort2](https://user-images.githubusercontent.com/78089013/174035707-e1475bd4-a3c6-4e74-ba9f-30b57335adfe.gif)
-
-<a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_scale/bubble_sort_scale.py" target="_blank">Script</a>
+| <a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_scale/bubble_sort_scale.py" target="_blank">bubble_sort_scale.py</a>|<a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_color/bubble_sort_color.py" target="_blank">bubble_sort_color.py</a>| 
+| ------------- |:-------------:| 
+| ![BubbleSort2](https://user-images.githubusercontent.com/78089013/174035707-e1475bd4-a3c6-4e74-ba9f-30b57335adfe.gif)|![BubbleColor2](https://user-images.githubusercontent.com/78089013/174149862-2ed3c492-0987-4194-834f-fc5276299bcc.gif)| 
 
 ## Insertion Sort
 
@@ -54,9 +53,9 @@ Like bubble sort, the insertion sort algorithm is straightforward to implement a
 But unlike bubble sort, it builds the sorted list one element at a time by comparing each item with the rest of the list and inserting it into its correct position.
 This “insertion” procedure gives the algorithm its name.
 
-![InsertionSort2](https://user-images.githubusercontent.com/78089013/174035509-714265d2-4d27-4d77-b809-997f4e233feb.gif)
-
-<a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_scale/insertion_sort_scale.py" target="_blank">Script</a>
+| <a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_scale/insertion_sort_scale.py" target="_blank">insertion_sort_scale.py</a>|<a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_color/insertion_sort_color.py" target="_blank">insertion_sort_color.py</a>| 
+| ------------- |:-------------:| 
+|![InsertionSort2](https://user-images.githubusercontent.com/78089013/174035509-714265d2-4d27-4d77-b809-997f4e233feb.gif)|![InsertionColor](https://user-images.githubusercontent.com/78089013/174154736-ada0e27f-88d0-4707-ba99-14ed967cce21.gif)| 
 
 ## Selection Sort
 
@@ -67,9 +66,9 @@ The selection sort algorithm sorts an array by repeatedly finding the minimum el
 </ul>
 In every iteration of selection sort, the minimum element (considering ascending order) from the unsorted subarray is picked and moved to the sorted subarray. 
 
-![SelectionSort2](https://user-images.githubusercontent.com/78089013/174033035-b6b9527a-3d12-4844-b066-50b4cb9d11ef.gif)
-
-<a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_scale/selection_sort_scale.py" target="_blank">Script</a>
+| <a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_scale/selection_sort_scale.py" target="_blank">selection_sort_scale.py</a>|<a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_color/selection_sort_color.py" target="_blank">selection_sort_color.py</a>| 
+| ------------- |:-------------:| 
+|![SelectionSort2](https://user-images.githubusercontent.com/78089013/174033035-b6b9527a-3d12-4844-b066-50b4cb9d11ef.gif)|![SelectionSort2](https://user-images.githubusercontent.com/78089013/174156159-605f5121-06c3-4314-a22c-5f7919bb9c44.gif)| 
 
 ## Shell Sort
 
@@ -82,10 +81,9 @@ The array is divided into sub-arrays and then insertion sort is applied. The alg
 <li>Repeat this process until the complete list is sorted.</li>
 </ul>
 
-![ShellSort2](https://user-images.githubusercontent.com/78089013/174032744-6d968c18-8fdb-4268-937f-55e910f8c4d5.gif)
-
-
-<a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_scale/shell_sort_scale.py" target="_blank">Script</a>
+| <a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_scale/shell_sort_scale.py" target="_blank">shell_sort_scale.py</a>|<a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_color/shell_sort_color.py" target="_blank">shell_sort_color.py</a>| 
+| ------------- |:-------------:| 
+|![ShellSort2](https://user-images.githubusercontent.com/78089013/174032744-6d968c18-8fdb-4268-937f-55e910f8c4d5.gif)|![ShellColor](https://user-images.githubusercontent.com/78089013/174157836-a4571ad7-0fd1-4237-9fb2-dc2d730a64c7.gif)| 
 
 ## Merge Sort
 
@@ -97,14 +95,15 @@ The sub-lists are divided again and again into halves until the list cannot be d
 Then we combine the pair of one element lists into two-element lists, sorting them in the process.<br>
 The sorted two-element pairs is merged into the four-element lists, and so on until we get the sorted list.
 
-![MergeSort2](https://user-images.githubusercontent.com/78089013/174032376-9b9768aa-5891-468e-a7a9-1d494374c5a4.gif)
-
-<a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_scale/merge_sort_scale.py" target="_blank">Script</a>
+| <a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_scale/merge_sort_scale.py" target="_blank">merge_sort_scale.py</a>|<a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_color/merge_sort_color.py" target="_blank">merge_sort_color.py</a>| 
+| ------------- |:-------------:| 
+|![MergeSort2](https://user-images.githubusercontent.com/78089013/174032376-9b9768aa-5891-468e-a7a9-1d494374c5a4.gif)|![MergeColor2](https://user-images.githubusercontent.com/78089013/174161064-3fff2b70-90db-425c-acab-0d87040ec205.gif)| 
 
 ## Quick Sort
 
 Like Merge Sort, QuickSort is a Divide and Conquer algorithm. It picks an element as pivot and partitions the given array around the picked pivot. There are many different versions of quickSort that pick pivot in different ways. 
 <ul>
+
 <li>Always pick first element as pivot.</li>
 <li>Always pick last element as pivot.</li>
 <li>Pick a random element as pivot.</li>
@@ -114,9 +113,9 @@ Like Merge Sort, QuickSort is a Divide and Conquer algorithm. It picks an elemen
 The key process in quickSort is partition(). Target of partitions is, given an array and an element x of array as pivot, put x at its correct position in sorted array and put all smaller elements (smaller than x) before x, and put all greater elements (greater than x) after x.<br>
 All this should be done in linear time.
 
-![QuickSort2](https://user-images.githubusercontent.com/78089013/174031317-2c261df1-6786-42e5-be08-1a7f5fccbca6.gif)
-
-<a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_scale/quick_sort_scale.py" target="_blank">Script</a>
+| <a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_scale/quick_sort_scale.py" target="_blank">quick_sort_scale.py</a>|<a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_color/quick_sort_color.py" target="_blank">quick_sort_color.py</a>| 
+| ------------- |:-------------:| 
+|![QuickSort2](https://user-images.githubusercontent.com/78089013/174031317-2c261df1-6786-42e5-be08-1a7f5fccbca6.gif)|![QuickColor](https://user-images.githubusercontent.com/78089013/174161905-a3a2d1bd-0064-4e23-92b3-50da150c6f0c.gif)| 
 
 Big O
 =====
@@ -153,7 +152,7 @@ These are the asymptotic notations that are used for calculating the time comple
 <ul>
 <li>Big O Notation, O:</li>
   
-It measures the upper limit of an algorithm's running time or the worst-case time complexity. It is known by O(n)O(n)O(n) for input size 'n'.
+It measures the upper limit of an algorithm's running time or the worst-case time complexity. It is known by O(n) for input size 'n'.
 
 <li>Omega Notation, Ω:</li>
 
