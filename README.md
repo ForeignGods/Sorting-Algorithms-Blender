@@ -44,7 +44,7 @@ Its name comes from the way the algorithm works: With every new pass, the larges
 
 Bubble sort consists of making multiple passes through a list, comparing elements one by one, and swapping adjacent items that are out of order. 
 
-![bubble_sort](https://user-images.githubusercontent.com/78089013/174016660-f61f32b7-4add-4cfd-89cd-3ee280662cab.gif)
+![BubbleSort2](https://user-images.githubusercontent.com/78089013/174035707-e1475bd4-a3c6-4e74-ba9f-30b57335adfe.gif)
 
 <a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_scale/bubble_sort_scale.py" target="_blank">Script</a>
 
@@ -54,7 +54,7 @@ Like bubble sort, the insertion sort algorithm is straightforward to implement a
 But unlike bubble sort, it builds the sorted list one element at a time by comparing each item with the rest of the list and inserting it into its correct position.
 This “insertion” procedure gives the algorithm its name.
 
-![InsertionSort](https://user-images.githubusercontent.com/78089013/174021742-ac80a35f-8d1e-42b3-a2b7-ce3651ddb6a9.gif)
+![InsertionSort2](https://user-images.githubusercontent.com/78089013/174035509-714265d2-4d27-4d77-b809-997f4e233feb.gif)
 
 <a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_scale/insertion_sort_scale.py" target="_blank">Script</a>
 
@@ -67,7 +67,7 @@ The selection sort algorithm sorts an array by repeatedly finding the minimum el
 </ul>
 In every iteration of selection sort, the minimum element (considering ascending order) from the unsorted subarray is picked and moved to the sorted subarray. 
 
-![SelectionSort](https://user-images.githubusercontent.com/78089013/174022742-3d261ea2-bf3b-4667-bfa8-15b5d2bc31cb.gif)
+![SelectionSort2](https://user-images.githubusercontent.com/78089013/174033035-b6b9527a-3d12-4844-b066-50b4cb9d11ef.gif)
 
 <a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_scale/selection_sort_scale.py" target="_blank">Script</a>
 
@@ -82,7 +82,8 @@ The array is divided into sub-arrays and then insertion sort is applied. The alg
 <li>Repeat this process until the complete list is sorted.</li>
 </ul>
 
-![ShellSort](https://user-images.githubusercontent.com/78089013/174024463-95298191-42a6-47f1-928f-0256312845c9.gif)
+![ShellSort2](https://user-images.githubusercontent.com/78089013/174032744-6d968c18-8fdb-4268-937f-55e910f8c4d5.gif)
+
 
 <a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_scale/shell_sort_scale.py" target="_blank">Script</a>
 
@@ -96,7 +97,7 @@ The sub-lists are divided again and again into halves until the list cannot be d
 Then we combine the pair of one element lists into two-element lists, sorting them in the process.<br>
 The sorted two-element pairs is merged into the four-element lists, and so on until we get the sorted list.
 
-![MergeSort](https://user-images.githubusercontent.com/78089013/174027221-f2bf50e9-bfa1-4939-9912-91abea95a8da.gif)
+![MergeSort2](https://user-images.githubusercontent.com/78089013/174032376-9b9768aa-5891-468e-a7a9-1d494374c5a4.gif)
 
 <a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_scale/merge_sort_scale.py" target="_blank">Script</a>
 
@@ -113,7 +114,7 @@ Like Merge Sort, QuickSort is a Divide and Conquer algorithm. It picks an elemen
 The key process in quickSort is partition(). Target of partitions is, given an array and an element x of array as pivot, put x at its correct position in sorted array and put all smaller elements (smaller than x) before x, and put all greater elements (greater than x) after x.<br>
 All this should be done in linear time.
 
-![QuickSort](https://user-images.githubusercontent.com/78089013/174030117-76744405-67c9-471d-9ee0-f323c48af5e2.gif)
+![QuickSort2](https://user-images.githubusercontent.com/78089013/174031317-2c261df1-6786-42e5-be08-1a7f5fccbca6.gif)
 
 <a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_scale/quick_sort_scale.py" target="_blank">Script</a>
 
