@@ -7,7 +7,10 @@ Table of contents
 =================
 
 <!--ts-->
-   * [Description](#description)
+   * [Introduction](#introduction)
+      * [Description](#description)
+      * [Getting Started](#getting-started)
+      * [Possible Updates](#possible-updates)
    * [Sorting Algorithms](#sorting-algorithms)
       * [Bubble Sort](#bubble-sort)
       * [Insertion Sort](#insertion-sort)
@@ -21,8 +24,9 @@ Table of contents
       * [Table of Sorting Algorithms](#table-of-sorting-algorithms)
 <!--te-->
 
-Description
-===========
+Introduction
+============
+## Description
 Running one of the scripts in this project generates primitive meshes in Blender, wich are animated to visualize various sorting algorithms.<br>
 The three folders <strong>(sort_color, sort_combined, sort_scale)</strong> contain three different types of visualisation.
 
@@ -32,26 +36,63 @@ The three folders <strong>(sort_color, sort_combined, sort_scale)</strong> conta
 <li><a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_scale" target="_blank"><strong>sort_scale: </strong></a>array of cuboids sorted based on height + array access and comparison counter</li>
 </ul>
 
-[comment]: <> (Why you used the technologies you usedSome of the challenges you faced and features you hope to implement in the future4. How to Install and Run the ProjectIf you are working on a project that a user needs to install or run locally in a machine like a "POS", you should include the steps required to install your project and also the required dependencies if any.Provide a step-by-step description of how to get the development environment set and running.)
+## Getting Started
 
+<ol>
+<li>Download, install and start <a href="https://www.blender.org/">Blender<a>.</li>
+<li>Open the .py file in the <a href="https://docs.blender.org/manual/en/latest/editors/text_editor.html"> Text Editor</a>.</li>
+<li>Click the play button to run the script.</li>
+</ol>
+
+## Possible Updates
+
+Below I compiled a list of features that could be implemented in the future. 
+  
+<ul> 
+<li>increase efficienty of the setup_array() function, to allow greater object count</li>
+ <li>adding audio <a href= "https://www.youtube.com/watch?v=kPRA0W1kECg&t=57s">"Audibilization"</a> </li>
+<li>adding more sorting algorithms</li>
+<li>adding more types of visualisations e.g.
+<a href="https://www.youtube.com/watch?v=_bxWi1sxRWA&t=194s">Sphere Agitation<a>, 
+<a href="https://www.youtube.com/watch?v=ohn_NwAQZtE">Cube Amalgam<a>, 
+<a href="https://www.youtube.com/watch?v=S0RtR2Yllzk">Dynamic Hoops<a></li>
+<li>auto generate camera with correct transforms based on the count of sorted objects</li>
+<li>create panel were you can choose different options like colors, sorting algorithms and count of objects</li>
+<li>improve merge sort visualisation so there are no gaps and overlapping objects</li>
+</ul>
+
+Contributions to this project with either ideas from the list or your own are welcome.
+  
 Sorting Algorithms
 ==================
 
 ## Bubble Sort
+<p>
+Bubble sort is one of the most straightforward sorting algorithms, it makes multiple passes through a list.<br>
+<ul>
+<li>Starting with the first element, compare the current element with the next element of the array.</li>
+<li>If the current element is greater than the next element of the array, swap them.</li>
+<li>If the current element is less than the next element, move to the next element.</li>
+</ul>
+In essence, each item “bubbles” up to the location where it belongs.
+</p>
 
-Bubble sort is one of the most straightforward sorting algorithms.<br>
-Its name comes from the way the algorithm works: With every new pass, the largest element in the list “bubbles up” toward its correct position. 
-
-Bubble sort consists of making multiple passes through a list, comparing elements one by one, and swapping adjacent items that are out of order. 
 | <a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_scale/bubble_sort_scale.py" target="_blank">bubble_sort_scale.py</a>|<a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_color/bubble_sort_color.py" target="_blank">bubble_sort_color.py</a>| 
 | ------------- |:-------------:| 
 | ![BubbleSort2](https://user-images.githubusercontent.com/78089013/174035707-e1475bd4-a3c6-4e74-ba9f-30b57335adfe.gif)|![BubbleColor2](https://user-images.githubusercontent.com/78089013/174149862-2ed3c492-0987-4194-834f-fc5276299bcc.gif)| 
 
 ## Insertion Sort
 
-Like bubble sort, the insertion sort algorithm is straightforward to implement and understand.<br>
-But unlike bubble sort, it builds the sorted list one element at a time by comparing each item with the rest of the list and inserting it into its correct position.
-This “insertion” procedure gives the algorithm its name.
+
+<p>Like bubble sort, the insertion sort algorithm is straightforward to implement and understand.<br>
+<ul>
+<li>Iterate from arr[1] to arr[n] over the array.</li>
+<li>Compare the current element (key) to its predecessor.</li>
+<li>If the key element is smaller than its predecessor, compare its elements before.</li>
+<li>Move the greater elements one position up to make space for the swapped element.</li>
+</ul>
+It splits the given array into sorted and unsorted parts, 
+then the values from the unsorted parts are picked and placed at the correct position in the sorted part.</p>
 
 | <a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_scale/insertion_sort_scale.py" target="_blank">insertion_sort_scale.py</a>|<a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_color/insertion_sort_color.py" target="_blank">insertion_sort_color.py</a>| 
 | ------------- |:-------------:| 
@@ -64,24 +105,27 @@ The selection sort algorithm sorts an array by repeatedly finding the minimum el
 <li>The subarray which is already sorted.</li>
 <li>Remaining subarray which is unsorted.</li>
 </ul>
-In every iteration of selection sort, the minimum element (considering ascending order) from the unsorted subarray is picked and moved to the sorted subarray. 
+<p>In every iteration of selection sort, the minimum element (considering ascending order) from the unsorted subarray is picked and moved to the sorted subarray.</p>
 
-| <a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_scale/selection_sort_scale.py" target="_blank">selection_sort_scale.py</a>|<a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_color/selection_sort_color.py" target="_blank">selection_sort_color.py</a>| 
+|<a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_scale/selection_sort_scale.py" target="_blank">selection_sort_scale.py</a>|<a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_color/selection_sort_color.py" target="_blank">selection_sort_color.py</a>| 
 | ------------- |:-------------:| 
 |![SelectionSort2](https://user-images.githubusercontent.com/78089013/174033035-b6b9527a-3d12-4844-b066-50b4cb9d11ef.gif)|![SelectionSort2](https://user-images.githubusercontent.com/78089013/174156159-605f5121-06c3-4314-a22c-5f7919bb9c44.gif)| 
 
 ## Shell Sort
-
+<p>
 The shell sort algorithm extends the insertion sort algorithm and is very efficient in sorting widely unsorted arrays.<br>
-The array is divided into sub-arrays and then insertion sort is applied. The algorithm is:
+The array is divided into sub-arrays and then insertion sort is applied.<br>
+The algorithm is:
 <ul>
 <li>Calculate the value of the gap.</li>
 <li>Divide the array into these sub-arrays.</li>
 <li>Apply the insertion sort.</li>
 <li>Repeat this process until the complete list is sorted.</li>
 </ul>
+This sorting technique works by sorting elements in pairs, far away from each other and subsequently reduces their gap.<br> The gap is known as the interval. We can calculate this gap/interval with the help of Knuth’s formula.
+</p>
 
-| <a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_scale/shell_sort_scale.py" target="_blank">shell_sort_scale.py</a>|<a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_color/shell_sort_color.py" target="_blank">shell_sort_color.py</a>| 
+|<a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_scale/shell_sort_scale.py" target="_blank">shell_sort_scale.py</a>|<a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_color/shell_sort_color.py" target="_blank">shell_sort_color.py</a>| 
 | ------------- |:-------------:| 
 |![ShellSort2](https://user-images.githubusercontent.com/78089013/174032744-6d968c18-8fdb-4268-937f-55e910f8c4d5.gif)|![ShellColor](https://user-images.githubusercontent.com/78089013/174157836-a4571ad7-0fd1-4237-9fb2-dc2d730a64c7.gif)| 
 
@@ -94,6 +138,7 @@ We have to define the merge() function to perform the merging.
 The sub-lists are divided again and again into halves until the list cannot be divided further.<br>
 Then we combine the pair of one element lists into two-element lists, sorting them in the process.<br>
 The sorted two-element pairs is merged into the four-element lists, and so on until we get the sorted list.
+
 
 | <a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_scale/merge_sort_scale.py" target="_blank">merge_sort_scale.py</a>|<a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_color/merge_sort_color.py" target="_blank">merge_sort_color.py</a>| 
 | ------------- |:-------------:| 
