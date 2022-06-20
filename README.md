@@ -66,6 +66,8 @@ Contributions to this project with either ideas from the list or your own are we
 Sorting Algorithms
 ==================
 
+<img src="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/img/sort_combined.gif"> <img>
+  
 ## Bubble Sort
 <p>
 Bubble sort is one of the most straightforward sorting algorithms, it makes multiple passes through a list.<br>
