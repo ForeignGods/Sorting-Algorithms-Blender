@@ -15,6 +15,7 @@ Table of contents
       * [Bubble Sort](#bubble-sort)
       * [Insertion Sort](#insertion-sort)
       * [Selection Sort](#selection-sort)
+      * [Heap Sort](#heap-sort)
       * [Shell Sort](#shell-sort)
       * [Merge Sort](#merge-sort)
       * [Quick Sort](#quick-sort)
@@ -113,6 +114,13 @@ The selection sort algorithm sorts an array by repeatedly finding the minimum el
 | ------------- |:-------------:| 
 |![SelectionSort2](https://user-images.githubusercontent.com/78089013/174033035-b6b9527a-3d12-4844-b066-50b4cb9d11ef.gif)|![SelectionSort2](https://user-images.githubusercontent.com/78089013/174156159-605f5121-06c3-4314-a22c-5f7919bb9c44.gif)| 
 
+
+## Heap Sort
+
+|<a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_scale/heap_sort_scale.py" target="_blank">heap_sort_scale.py</a>|<a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_color/heap_sort_color.py" target="_blank">heap_sort_color.py</a>| 
+| ------------- |:-------------:| 
+|![HeapScale](https://user-images.githubusercontent.com/78089013/174625884-ed64292c-c5cf-4fe8-af9f-bddb2e5fa6bf.gif)||   
+  
 ## Shell Sort
 <p>
 The shell sort algorithm extends the insertion sort algorithm and is very efficient in sorting widely unsorted arrays.<br>
