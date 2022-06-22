@@ -32,8 +32,8 @@ Running one of the scripts in this project generates primitive meshes in Blender
 The three folders <strong>(sort_color, sort_combined, sort_scale)</strong> contain three different types of visualisation.
 
 <ul>
-<li><a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_color" target="_blank"><strong>sort_color: </strong></a>2D array of planes arragned into a square sorted based on color </li>
-<li><a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_combined" target="_blank"><strong>sort_combined: </strong></a>multiple 2D arrays of planes arragned into a cube sorted based on color</li>
+<li><a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_color" target="_blank"><strong>sort_color: </strong></a>2D array of planes arranged into a square sorted based on color </li>
+<li><a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_combined" target="_blank"><strong>sort_combined: </strong></a>multiple 2D arrays of planes arranged into a cube sorted based on color</li>
 <li><a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_scale" target="_blank"><strong>sort_scale: </strong></a>array of cuboids sorted based on height + array access and comparison counter</li>
 </ul>
 
@@ -50,7 +50,7 @@ The three folders <strong>(sort_color, sort_combined, sort_scale)</strong> conta
 Below I compiled a list of features that could be implemented in the future. 
   
 <ul> 
-<li>increase efficienty of the setup_array() function, to allow greater object count</li>
+<li>increase efficiency of the setup_array() function, to allow greater object count</li>
  <li>adding audio <a href= "https://www.youtube.com/watch?v=kPRA0W1kECg&t=57s">"Audibilization"</a> </li>
 <li>adding more sorting algorithms</li>
 <li>adding more types of visualisations e.g.
@@ -86,7 +86,6 @@ In essence, each item “bubbles” up to the location where it belongs.
 
 ## Insertion Sort
 
-
 <p>Like bubble sort, the insertion sort algorithm is straightforward to implement and understand.<br>
 <ul>
 <li>Iterate from arr[1] to arr[n] over the array.</li>
@@ -114,13 +113,22 @@ The selection sort algorithm sorts an array by repeatedly finding the minimum el
 | ------------- |:-------------:| 
 |![SelectionSort2](https://user-images.githubusercontent.com/78089013/174033035-b6b9527a-3d12-4844-b066-50b4cb9d11ef.gif)|![SelectionSort2](https://user-images.githubusercontent.com/78089013/174156159-605f5121-06c3-4314-a22c-5f7919bb9c44.gif)| 
 
-
 ## Heap Sort
 
+Based on the binary heap data structure, heap sort is mainly considered as a comparison-based sorting algorithm.<br>
+In this sorting technique, at first, the minimum element is found out and then the minimum element gets placed at its right position at the beginning of the array.<br>
+For the rest of the elements, the same process gets repeated. So, we can say that heap sort is quite similar to the selection sort technique.<br>
+Heap sort basically recursively performs two main operations:
+<ul>
+<li>Build a heap H, using the elements of array</li>
+<li>Repeatedly delete the root element of the heap formed in 1st phase</li>
+</ul>
+  
 |<a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_scale/heap_sort_scale.py" target="_blank">heap_sort_scale.py</a>|<a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_color/heap_sort_color.py" target="_blank">heap_sort_color.py</a>| 
 | ------------- |:-------------:| 
-|![HeapScale](https://user-images.githubusercontent.com/78089013/174625884-ed64292c-c5cf-4fe8-af9f-bddb2e5fa6bf.gif)||   
+|![HeapScale](https://user-images.githubusercontent.com/78089013/174625884-ed64292c-c5cf-4fe8-af9f-bddb2e5fa6bf.gif)|![heapColor](https://user-images.githubusercontent.com/78089013/175014980-af6f702b-7206-4bf4-9d00-0a7f7fc5d15d.gif)|   
   
+
 ## Shell Sort
 <p>
 The shell sort algorithm extends the insertion sort algorithm and is very efficient in sorting widely unsorted arrays.<br>
@@ -141,7 +149,7 @@ This sorting technique works by sorting elements in pairs, far away from each ot
 
 ## Merge Sort
 
-Merge sort uses the divide and conquer approach to sort the elements. It is one of the most popular and efficient sorting algorithm.<br>
+Merge sort uses the divide and conquer approach to sort the elements. It is one of the most popular and efficient sorting algorithms.<br>
 It divides the given list into two equal halves, calls itself for the two halves and then merges the two sorted halves.<br>
 We have to define the merge() function to perform the merging.
 
@@ -220,6 +228,9 @@ It measures the average time taken by an algorithm to execute. Or, the lower bou
   
 ### Table of Sorting Algorithms
 
+In applications such as in radix sort, a bound on the maximum key value "k" will be known in advance, and can be assumed to be part of the input to the algorithm.<br>
+However, if the value of "k" is not already known then it may be computed, as a first step, by an additional loop over the data to determine the maximum key value.<br>  
+  
 <table>
     <tr>
       <th>Algorithm</th>
