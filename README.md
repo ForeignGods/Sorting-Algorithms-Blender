@@ -29,6 +29,7 @@ Introduction
 ============
 ## Description
 Running one of the scripts in this project generates primitive meshes in Blender, wich are animated to visualize various sorting algorithms.<br>
+Keyframes are incrementaly inserted according to the current position of the element in the array during the sorting.<br>
 The three folders <strong>(sort_color, sort_combined, sort_scale)</strong> contain three different types of visualisation.
 
 <ul>
@@ -62,13 +63,20 @@ Below I compiled a list of features that could be implemented in the future.
 <li>improve merge sort visualisation so there are no gaps and overlapping objects</li>
 </ul>
 
-Contributions to this project with either ideas from the list or your own are welcome.
+<strong>Contributions to this project with either ideas from the list or your own are welcome.</strong>
+
+
+<div align="center">
   
 Sorting Algorithms
 ==================
-
-<img src="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/img/sort_combined.gif"> <img>
   
+|<a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_combined/combined_sort_cube.py" target="_blank">combined_sort_cube.py</a>|
+| ------------- |
+|<img src="https://user-images.githubusercontent.com/78089013/175064056-5a766e7b-2804-4ed6-b05d-786d26ebcbfb.gif" width="480" height="270">|
+  
+</div>
+
 ## Bubble Sort
 <p>
 Bubble sort is one of the most straightforward sorting algorithms, it makes multiple passes through a list.<br>
@@ -117,11 +125,12 @@ The selection sort algorithm sorts an array by repeatedly finding the minimum el
 
 Based on the binary heap data structure, heap sort is mainly considered as a comparison-based sorting algorithm.<br>
 In this sorting technique, at first, the minimum element is found out and then the minimum element gets placed at its right position at the beginning of the array.<br>
-For the rest of the elements, the same process gets repeated. So, we can say that heap sort is quite similar to the selection sort technique.<br>
+For the rest of the elements, the same process gets repeated.<br>
+So, we can say that heap sort is quite similar to the selection sort technique.<br>
 Heap sort basically recursively performs two main operations:
 <ul>
-<li>Build a heap H, using the elements of array</li>
-<li>Repeatedly delete the root element of the heap formed in 1st phase</li>
+<li>Build a heap H, using the elements of array.</li>
+<li>Repeatedly delete the root element of the heap formed in 1st phase.</li>
 </ul>
   
 |<a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_scale/heap_sort_scale.py" target="_blank">heap_sort_scale.py</a>|<a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_color/heap_sort_color.py" target="_blank">heap_sort_color.py</a>| 
@@ -151,7 +160,7 @@ This sorting technique works by sorting elements in pairs, far away from each ot
 
 Merge sort uses the divide and conquer approach to sort the elements. It is one of the most popular and efficient sorting algorithms.<br>
 It divides the given list into two equal halves, calls itself for the two halves and then merges the two sorted halves.<br>
-We have to define the merge() function to perform the merging.
+We have to define the <strong>merge()</strong> function to perform the merging.
 
 The sub-lists are divided again and again into halves until the list cannot be divided further.<br>
 Then we combine the pair of one element lists into two-element lists, sorting them in the process.<br>
@@ -164,7 +173,7 @@ The sorted two-element pairs is merged into the four-element lists, and so on un
 
 ## Quick Sort
 
-Like Merge Sort, QuickSort is a Divide and Conquer algorithm. It picks an element as pivot and partitions the given array around the picked pivot. There are many different versions of quickSort that pick pivot in different ways. 
+Like Merge Sort, Quick Sort is a Divide and Conquer algorithm. It picks an element as pivot and partitions the given array around the picked pivot. There are many different versions of Quick Sort that pick pivot in different ways. 
 <ul>
 
 <li>Always pick first element as pivot.</li>
@@ -173,7 +182,7 @@ Like Merge Sort, QuickSort is a Divide and Conquer algorithm. It picks an elemen
 <li>Pick median as pivot. (implemented below)</li>
 </ul>
 
-The key process in quickSort is partition(). Target of partitions is, given an array and an element x of array as pivot, put x at its correct position in sorted array and put all smaller elements (smaller than x) before x, and put all greater elements (greater than x) after x.<br>
+The key process in quickSort is <strong>partition()</strong>. Target of partitions is, given an array and an element x of array as pivot, put x at its correct position in sorted array and put all smaller elements (smaller than x) before x, and put all greater elements (greater than x) after x.<br>
 All this should be done in linear time.
 
 | <a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_scale/quick_sort_scale.py" target="_blank">quick_sort_scale.py</a>|<a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_color/quick_sort_color.py" target="_blank">quick_sort_color.py</a>| 
@@ -200,36 +209,36 @@ It depends on the speed of the processor, what else the computer is running, etc
 
 If we were measuring our runtime directly, we could express our speed in seconds.<br>
 Since we're measuring how quickly our runtime grows, we need to express our speed in terms of...something else.<br>
-With Big O notation, we use the size of the input, which we call "n".<br>
-So we can say things like the runtime grows "on the order of the size of the input" (O(n)) or "on the order of the square of the size of the input" (O(n^2)).</li>
+With Big O notation, we use the size of the input, which we call<strong> "n"</strong>.<br>
+So we can say things like the runtime grows "on the order of the size of the input" <strong>(O(n))</strong> or "on the order of the square of the size of the input" <strong>(O(n^2))</strong>.</li>
     
 <li><strong>as the input gets arbitrarily</strong>
 
-Our algorithm may have steps that seem expensive when "n" is small but are eclipsed eventually by other steps as "n" gets huge.<br> 
-For big O analysis, we care most about the stuff that grows fastest as the input grows, because everything else is quickly eclipsed as "n" gets very large.</li>
+Our algorithm may have steps that seem expensive when <strong>"n"</strong> is small but are eclipsed eventually by other steps as <strong>"n"</strong> gets huge.<br> 
+For big O analysis, we care most about the stuff that grows fastest as the input grows, because everything else is quickly eclipsed as <strong>"n"</strong> gets very large.</li>
 </ul>
 
 ### Time Complexity Notations
  
 These are the asymptotic notations that are used for calculating the time complexity of the sorting algorithms:
 <ul>
-<li>Big O Notation, O:</li>
+<li><strong>Big O Notation, O:</strong></li>
   
 It measures the upper limit of an algorithm's running time or the worst-case time complexity. It is known by O(n) for input size 'n'.
 
-<li>Omega Notation, Ω:</li>
+<li><strong>Omega Notation, Ω:</strong></li>
 
 It measures the minimum time taken by algorithms to execute, and calculates the best case time complexity in sorting. It is known by Ω(n) for input size 'n'.
 
-<li>Theta Notation, θ:</li>
+<li><strong>Theta Notation, θ:</strong></li>
 
 It measures the average time taken by an algorithm to execute. Or, the lower bound and upper bound of an algorithm's running time. It is known by θ(n) for input size 'n'.
 </ul>
   
 ### Table of Sorting Algorithms
 
-In applications such as in radix sort, a bound on the maximum key value "k" will be known in advance, and can be assumed to be part of the input to the algorithm.<br>
-However, if the value of "k" is not already known then it may be computed, as a first step, by an additional loop over the data to determine the maximum key value.<br>  
+In applications such as in radix sort, a bound on the maximum key value <strong>"k"</strong> will be known in advance, and can be assumed to be part of the input to the algorithm.<br>
+However, if the value of <strong>"k"</strong> is not already known then it may be computed, as a first step, by an additional loop over the data to determine the maximum key value.<br>  
   
 <table>
     <tr>
