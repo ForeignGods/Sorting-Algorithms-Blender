@@ -88,9 +88,10 @@ Bubble sort is one of the most straightforward sorting algorithms, it makes mult
 In essence, each item “bubbles” up to the location where it belongs.
 </p>
 
-| <a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_scale/bubble_sort_scale.py" target="_blank">bubble_sort_scale.py</a>|<a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_color/bubble_sort_color.py" target="_blank">bubble_sort_color.py</a>| 
-| ------------- |:-------------:| 
-| ![BubbleSort2](https://user-images.githubusercontent.com/78089013/174035707-e1475bd4-a3c6-4e74-ba9f-30b57335adfe.gif)|![BubbleColor2](https://user-images.githubusercontent.com/78089013/174149862-2ed3c492-0987-4194-834f-fc5276299bcc.gif)| 
+| <a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_scale/bubble_sort_scale.py" target="_blank">bubble_sort_scale.py</a>|<a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_color/bubble_sort_color.py" target="_blank">bubble_sort_color.py</a>|<a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_circle/bubble_sort_circle.py" target="_blank">bubble_sort_circle.py</a>| 
+| ------------- |-------------|-------------| 
+| ![BubbleSort2](https://user-images.githubusercontent.com/78089013/174035707-e1475bd4-a3c6-4e74-ba9f-30b57335adfe.gif)|![BubbleColor2](https://user-images.githubusercontent.com/78089013/174149862-2ed3c492-0987-4194-834f-fc5276299bcc.gif)|<img src="./img/bubble_circle.gif">|
+
 
 ## Insertion Sort
 
@@ -104,7 +105,7 @@ In essence, each item “bubbles” up to the location where it belongs.
 It splits the given array into sorted and unsorted parts, 
 then the values from the unsorted parts are picked and placed at the correct position in the sorted part.</p>
 
-| <a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_scale/insertion_sort_scale.py" target="_blank">insertion_sort_scale.py</a>|<a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_color/insertion_sort_color.py" target="_blank">insertion_sort_color.py</a>| 
+| <a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_scale/insertion_sort_scale.py" target="_blank">insertion_sort_scale.py</a>|<a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_color/insertion_sort_color.py" target="_blank">insertion_sort_color.py</a>|
 | ------------- |:-------------:| 
 |![InsertionSort2](https://user-images.githubusercontent.com/78089013/174035509-714265d2-4d27-4d77-b809-997f4e233feb.gif)|![InsertionColor](https://user-images.githubusercontent.com/78089013/174154736-ada0e27f-88d0-4707-ba99-14ed967cce21.gif)| 
 
