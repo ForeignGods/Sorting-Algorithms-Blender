@@ -30,14 +30,14 @@ Introduction
 ## Description
 Running one of the scripts in this project generates primitive meshes in Blender, wich are animated to visualize various sorting algorithms.<br>
 Keyframes are incrementaly inserted according to the current position of the element in the array during the sorting.<br>
-The three folders <strong>(sort_circle, sort_color, sort_combined, sort_scale)</strong> contain four different types of visualisation.
+The four folders <strong>(sort_circle, sort_color, sort_combined, sort_scale)</strong> contain four different types of visualization.
 
-<ul>
-<li><a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_circle" target="_blank"><strong>sort_circle: </strong></a> array of cuboids arragned into a circle using rotation and sorted based on the hsv value of the material</li>
-<li><a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_color" target="_blank"><strong>sort_color: </strong></a>2D array of planes arranged into a square and sorted based on the red + green value of the material</li>
-<li><a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_combined" target="_blank"><strong>sort_combined: </strong></a>multiple 2D arrays of planes arranged into a cube and sorted based on the red + green value of the material</li>
-<li><a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_scale" target="_blank"><strong>sort_scale: </strong></a>array of cuboids sorted based on height + array access and comparison counter</li>
-</ul>
+|Type|Sorting Criteria|Representation of Index|Extras|
+|:--:|:--------------:|:---------------------:|:----:|
+|<a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_circle" target="_blank">sort_circle|hsv of material|rotation of cuboid|hsv = 360°|
+|<a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_color" target="_blank">sort_color|red + green of material|location of plane|custom color gradient|
+|<a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_combined" target="_blank">sort_combined|red + green of material|location of plane|multiple 2d arrays arranged into a cube|
+|<a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_scale" target="_blank">sort_scale</a>|scale of cubiod|location of cuboid|array access and  comparison counter|
 
 ## Getting Started
 
@@ -55,13 +55,13 @@ Below I compiled a list of features that could be implemented in the future.
 <li>increase efficiency of the setup_array() function, to allow greater object count</li>
  <li>adding audio <a href= "https://www.youtube.com/watch?v=kPRA0W1kECg&t=57s">"Audibilization"</a> </li>
 <li>adding more sorting algorithms</li>
-<li>adding more types of visualisations e.g.
+<li>adding more types of visualization e.g.
 <a href="https://www.youtube.com/watch?v=_bxWi1sxRWA&t=194s">Sphere Agitation<a>, 
 <a href="https://www.youtube.com/watch?v=ohn_NwAQZtE">Cube Amalgam<a>, 
 <a href="https://www.youtube.com/watch?v=S0RtR2Yllzk">Dynamic Hoops<a></li>
 <li>auto generate camera with correct transforms based on the count of sorted objects</li>
 <li>create panel were you can choose different options like colors, sorting algorithms and count of objects</li>
-<li>improve merge sort visualisation so there are no gaps and overlapping objects</li>
+<li>improve merge sort visualization so there are no gaps and overlapping objects</li>
 </ul>
 
 <strong>Contributions to this project with either ideas from the list or your own are welcome.</strong>
