@@ -30,11 +30,12 @@ Introduction
 ## Description
 Running one of the scripts in this project generates primitive meshes in Blender, wich are animated to visualize various sorting algorithms.<br>
 Keyframes are incrementaly inserted according to the current position of the element in the array during the sorting.<br>
-The three folders <strong>(sort_color, sort_combined, sort_scale)</strong> contain three different types of visualisation.
+The three folders <strong>(sort_circle, sort_color, sort_combined, sort_scale)</strong> contain four different types of visualisation.
 
 <ul>
-<li><a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_color" target="_blank"><strong>sort_color: </strong></a>2D array of planes arranged into a square sorted based on color </li>
-<li><a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_combined" target="_blank"><strong>sort_combined: </strong></a>multiple 2D arrays of planes arranged into a cube sorted based on color</li>
+<li><a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_circle" target="_blank"><strong>sort_circle: </strong></a> array of cuboids arragned into a circle using rotation and sorted based on the hsv value of the material</li>
+<li><a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_color" target="_blank"><strong>sort_color: </strong></a>2D array of planes arranged into a square and sorted based on the red + green value of the material</li>
+<li><a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_combined" target="_blank"><strong>sort_combined: </strong></a>multiple 2D arrays of planes arranged into a cube and sorted based on the red + green value of the material</li>
 <li><a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_scale" target="_blank"><strong>sort_scale: </strong></a>array of cuboids sorted based on height + array access and comparison counter</li>
 </ul>
 
