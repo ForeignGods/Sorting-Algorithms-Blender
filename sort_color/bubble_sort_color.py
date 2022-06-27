@@ -23,17 +23,7 @@ def bubble_sort(arr, count):
             mat1 = arr[j].active_material.diffuse_color
             mat2 = arr[j + 1].active_material.diffuse_color
             
-            #get R value of both materials
-            r1 = mat1[0]
-            r2 = mat2[0]
-            
-            #get G value of both materials
-            g1 = mat1[1]
-            g2 = mat2[1]
-         
-            # R + G = value for comparison
-            rg1 = r1 + g1
-            rg2 = r2 + g2
+            rg1, rg2 = get_rg(mat1, mat2)
             
             #compare first colorarray values
             if rg1 > rg2: 
@@ -72,30 +62,30 @@ def setup_array(count):
     
     #create arrays for each color value (RGB) to generate the sunset gradient
     
-    #first half 0 --> 255, second half 255 --> 255
+    #add red values to array
     colors_r = [0 for i in range(count)]
-    colors_r1 = np.linspace(0, 254, count//2)
-    colors_r2 = np.linspace(255, 255, count//2)
+    colors_r1 = np.linspace(0, 225, count//2)
+    colors_r2 = np.linspace(230, 255, count//2)
     for i in range(count):  
         if(i < count//2):
             colors_r[i]=colors_r1[i]
         else:
             colors_r[i]=colors_r2[i-count//2]
     
-    #first half 0 --> 0, second half 0 --> 200
+    #add green values to array
     colors_g = [0 for i in range(count)]
     colors_g1 = np.linspace(0, 0, count//2)
-    colors_g2 = np.linspace(10, 200, count//2)
+    colors_g2 = np.linspace(20, 200, count//2)
     for i in range(count):  
         if(i < count//2):
             colors_g[i]=colors_g1[i]
         else:
             colors_g[i]=colors_g2[i-count//2]
     
-    #first half 200 --> 0, secondhalf 0 --> 100
+    #add blue values to array
     colors_b = [0 for i in range(count)]
-    colors_b1 = np.linspace(200, 0, count//2)
-    colors_b2 = np.linspace(10, 100, count//2)
+    colors_b1 = np.linspace(200, 20, count//2)
+    colors_b2 = np.linspace(0, 100, count//2)
     for i in range(count):  
         if(i < count//2):
             colors_b[i]=colors_b1[i]
@@ -138,16 +128,41 @@ def setup_array(count):
         for j in range(count):
                 planes[j+i*count].data.materials.append(materials[j]) #add the material to the object
                 Matrix[i][j] = planes[j+i*count]
-     
+    
+    #set optimal color managment setting 
+    bpy.context.scene.view_settings.exposure = -3.75
+    bpy.context.scene.view_settings.gamma = 0.7
+    bpy.context.scene.view_settings.look = 'Medium Contrast'
+
     return(Matrix, count)
+
+############################################################
+# Get R and G Values from Material
+############################################################
+
+def get_rg(mat1, mat2):
+    
+    #get R value of both materials
+    r1 = mat1[0]
+    r2 = mat2[0]
+    
+    #get G value of both materials
+    g1 = mat1[1]
+    g2 = mat2[1]
+    
+    # R + G = value for comparison
+    rg1 = r1 + g1
+    rg2 = r2 + g2
+
+    return rg1, rg2
 
 ############################################################
 # Call Functions
 ############################################################
 
 #setup_array(number of planes)
-Matrix, count = setup_array(26)#only even numbers are valid
+Matrix, count = setup_array(24)#only even numbers are valid
 
-#sorting every subarray with bubble_sort + visualisation
+#bubble_sort + visualisation
 for i in range(count):
     bubble_sort(Matrix[i], count)

@@ -17,53 +17,33 @@ def heapify(arr, n, i, seed):
     l = 2 * i + 1     # left = 2*i + 1
     r = 2 * i + 2     # right = 2*i + 2
   
-    # See if left child of root exists and is
-    # greater than root
-  
     try:
         #get materials during loop
         mat1 = arr[largest].active_material.diffuse_color
         mat2 = arr[l].active_material.diffuse_color
         
-        #get R value of both materials
-        r1 = mat1[0]
-        r2 = mat2[0]
+        #get RG values from materials
+        rg1, rg2 = get_rg(mat1, mat2)
         
-        #get G value of both materials
-        g1 = mat1[1]
-        g2 = mat2[1]
-     
-        # R + G = value for comparison
-        rg1 = r1 + g1
-        rg2 = r2 + g2
     except:
         print("l to big")
-    
+        
+    # See if left child of root exists and is greater than root
     if l < n and rg1 < rg2:
         largest = l
   
-    # See if right child of root exists and is
-    # greater than root
-    
     try:
         #get materials during loop
         mat1 = arr[largest].active_material.diffuse_color
         mat2 = arr[r].active_material.diffuse_color
         
-        #get R value of both materials
-        r1 = mat1[0]
-        r2 = mat2[0]
+        #get RG values from materials
+        rg1, rg2 = get_rg(mat1, mat2)
         
-        #get G value of both materials
-        g1 = mat1[1]
-        g2 = mat2[1]
-     
-        # R + G = value for comparison
-        rg1 = r1 + g1
-        rg2 = r2 + g2
     except:
         print("r to big")
-    
+
+    # See if right child of root exists and is greater than root
     if r < n and rg1 < rg2:
         largest = r
   
@@ -133,30 +113,30 @@ def setup_array(count):
     
     #create arrays for each color value (RGB) to generate the sunset gradient
     
-    #first half 0 --> 254, second half 255 --> 255
+    #add red values to array
     colors_r = [0 for i in range(count)]
-    colors_r1 = np.linspace(0, 254, count//2)
-    colors_r2 = np.linspace(255, 255, count//2)
+    colors_r1 = np.linspace(0, 225, count//2)
+    colors_r2 = np.linspace(230, 255, count//2)
     for i in range(count):  
         if(i < count//2):
             colors_r[i]=colors_r1[i]
         else:
             colors_r[i]=colors_r2[i-count//2]
     
-    #first half 0 --> 0, second half 10 --> 200
+    #add green values to array
     colors_g = [0 for i in range(count)]
     colors_g1 = np.linspace(0, 0, count//2)
-    colors_g2 = np.linspace(10, 200, count//2)
+    colors_g2 = np.linspace(20, 200, count//2)
     for i in range(count):  
         if(i < count//2):
             colors_g[i]=colors_g1[i]
         else:
             colors_g[i]=colors_g2[i-count//2]
     
-    #first half 200 --> 0, secondhalf 10 --> 100
+    #add blue values to array
     colors_b = [0 for i in range(count)]
-    colors_b1 = np.linspace(255, 0, count//2)
-    colors_b2 = np.linspace(10, 100, count//2)
+    colors_b1 = np.linspace(200, 20, count//2)
+    colors_b2 = np.linspace(0, 100, count//2)
     for i in range(count):  
         if(i < count//2):
             colors_b[i]=colors_b1[i]
@@ -208,10 +188,30 @@ def setup_array(count):
     return(Matrix, count)
 
 ############################################################
+# Get R and G Values from Material
+############################################################
+
+def get_rg(mat1, mat2):
+    
+    #get R value of both materials
+    r1 = mat1[0]
+    r2 = mat2[0]
+    
+    #get G value of both materials
+    g1 = mat1[1]
+    g2 = mat2[1]
+    
+    # R + G = value for comparison
+    rg1 = r1 + g1
+    rg2 = r2 + g2
+
+    return rg1, rg2
+
+############################################################
 # Call Functions
 ############################################################
 
-Matrix, count = setup_array(50)
+Matrix, count = setup_array(24)
 
 #quick_sort every array
 for i in range(count):
