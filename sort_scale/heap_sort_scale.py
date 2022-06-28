@@ -13,40 +13,54 @@ def heapify(arr, n, i):
     largest = i  # Initialize largest as root
     l = 2 * i + 1     # left = 2*i + 1
     r = 2 * i + 2     # right = 2*i + 2
-  
-    # See if left child of root exists and is
-    # greater than root
+    
+    #add 2 to arrayCounter
+    arrayCounter.inputs[0].default_value += 2
+    arrayCounter.inputs[0].keyframe_insert(data_path='default_value', frame=iframe)
+    #add 1 to comparisonCounter
+    comparisonCounter.inputs[0].default_value += 2
+    comparisonCounter.inputs[0].keyframe_insert(data_path='default_value', frame=iframe)
+    # See if left child of root exists and is greater than root
     if l < n and arr[largest].scale.z - 1 < arr[l].scale.z - 1:
         largest = l
-  
-    # See if right child of root exists and is
-    # greater than root
+    
+    #add 2 to arrayCounter
+    arrayCounter.inputs[0].default_value += 2
+    arrayCounter.inputs[0].keyframe_insert(data_path='default_value', frame=iframe)
+    #add 1 to comparisonCounter
+    comparisonCounter.inputs[0].default_value += 2
+    comparisonCounter.inputs[0].keyframe_insert(data_path='default_value', frame=iframe)
+    # See if right child of root exists and is greater than root
     if r < n and arr[largest].scale.z - 1 < arr[r].scale.z - 1:
         largest = r
-  
+    
     # Change root, if needed
     if largest != i:
-        arr[i], arr[largest] = arr[largest], arr[i]  # swap
+        arr[i], arr[largest] = arr[largest], arr[i] #swap
         
         a = arr[i].location.x
         b = arr[largest].location.x
         
         arr[i].location.x = b
         arr[largest].location.x = a
+    
+        #add 4 to arrayCounter
+        arrayCounter.inputs[0].default_value += 4
+        arrayCounter.inputs[0].keyframe_insert(data_path='default_value', frame=iframe)
         
         for cube in cubes:
             cube.keyframe_insert(data_path="location", frame=iframe) 
-        
         iframe += 1
+        
         # Heapify the root.
         heapify(arr, n, largest)
   
 # The main function to sort an array of given size
 def heap_sort(arr):
    
-    n = len(arr)
-
     global iframe
+    
+    n = len(arr)
     
     # Build a maxheap.
     for i in range(n//2 - 1, -1, -1):
@@ -54,13 +68,17 @@ def heap_sort(arr):
   
     # One by one extract elements
     for i in range(n-1, 0, -1):
-        arr[i], arr[0] = arr[0], arr[i]  # swap
+        arr[i], arr[0] = arr[0], arr[i] #swap
         
         a = arr[i].location.x
         b = arr[0].location.x
         
         arr[i].location.x = b
         arr[0].location.x = a
+        
+        #add 4 to arrayCounter
+        arrayCounter.inputs[0].default_value += 4
+        arrayCounter.inputs[0].keyframe_insert(data_path='default_value', frame=iframe)
         
         for cube in cubes:
             cube.keyframe_insert(data_path="location", frame=iframe) 
@@ -125,6 +143,10 @@ def setup_array(count):
     node_grp.links.new(comparisonString.outputs[0], joinStrings.inputs[1])
     node_grp.links.new(arrayCounter.outputs[0], joinStrings.inputs[1])
     node_grp.links.new(arrayString.outputs[0], joinStrings.inputs[1])
+    
+    #add keyframe on frame 0 for comparison and array counter
+    comparisonCounter.inputs[0].keyframe_insert(data_path='default_value', frame=0)
+    arrayCounter.inputs[0].keyframe_insert(data_path='default_value', frame=0)
 
     #fill arrays with numbers between 1 & count
     ran = list(range(0,count-1))
@@ -172,5 +194,5 @@ def setup_array(count):
 
 cubes, arrayCounter, comparisonCounter = setup_array(50)
 
-iframe = 0
+iframe = 1
 heap_sort(cubes)

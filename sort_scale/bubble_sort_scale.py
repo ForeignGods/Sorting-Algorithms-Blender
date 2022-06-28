@@ -7,33 +7,35 @@ from mathutils import Vector, Matrix
 ############################################################
 
 def bubble_sort(cubes, arrayCounter, comparisonCounter):
+    
     for i in range(len(cubes)-1):    
         
         #insert keyframe for every cube on every frame
         for cube in cubes:
-            cube.keyframe_insert(data_path="location", frame=i) 
+            cube.keyframe_insert(data_path="location", frame=i+1) 
+        
         already_sorted = True
         for j in range(len(cubes) - i -1):
             
             #add 1 to comparison counter
             comparisonCounter.inputs[0].default_value += 1
-            comparisonCounter.inputs[0].keyframe_insert(data_path='default_value', frame=i)
+            comparisonCounter.inputs[0].keyframe_insert(data_path='default_value', frame=i+1)
                 
             #add 2 to array counter
             arrayCounter.inputs[0].default_value += 2
-            arrayCounter.inputs[0].keyframe_insert(data_path='default_value', frame=i)
+            arrayCounter.inputs[0].keyframe_insert(data_path='default_value', frame=i+1)
         
             if cubes[j].scale.z > cubes[j + 1].scale.z: 
 
                 #change location & insert keyframes based on bubble sort
                 cubes[j].location.x = j
-                cubes[j].keyframe_insert(data_path="location", frame=i)
+                cubes[j].keyframe_insert(data_path="location", frame=i+1)
                 cubes[j+1].location.x = j-1
-                cubes[j+1].keyframe_insert(data_path="location", frame=i)       
+                cubes[j+1].keyframe_insert(data_path="location", frame=i+1)       
                 
                 #add 4 to array counter
                 arrayCounter.inputs[0].default_value += 4
-                arrayCounter.inputs[0].keyframe_insert(data_path='default_value', frame=i)
+                arrayCounter.inputs[0].keyframe_insert(data_path='default_value', frame=i+1)
                 
                 #rearrange arrays
                 cubes[j], cubes[j + 1] = cubes[j + 1], cubes[j]
@@ -98,6 +100,10 @@ def setup_array(count):
     node_grp.links.new(comparisonString.outputs[0], joinStrings.inputs[1])
     node_grp.links.new(arrayCounter.outputs[0], joinStrings.inputs[1])
     node_grp.links.new(arrayString.outputs[0], joinStrings.inputs[1])
+    
+    #add keyframe on frame 0 for comparison and array counter
+    comparisonCounter.inputs[0].keyframe_insert(data_path='default_value', frame=0)
+    arrayCounter.inputs[0].keyframe_insert(data_path='default_value', frame=0)
 
     #fill arrays with numbers between 1 & count
     ran = list(range(0,count-1))
@@ -141,6 +147,6 @@ def setup_array(count):
 # Call Functions
 ############################################################
 
-cubes, arrayCounter, comparisonCounter = setup_array(20)
+cubes, arrayCounter, comparisonCounter = setup_array(50)
 
 bubble_sort(cubes, arrayCounter, comparisonCounter)

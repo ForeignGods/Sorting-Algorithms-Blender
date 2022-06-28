@@ -7,9 +7,10 @@ from mathutils import Vector, Matrix
 ############################################################
 
 def insertion_sort(cubes, arrayCounter, comparisonCounter):
+    
     #start at frame 0
-    iframe=0
-    originFrame = 0 
+    iframe = 1
+    originFrame = 1 
 
     for i in range(0, len(cubes)):
         #defines key_item that is compared until correct location
@@ -126,6 +127,10 @@ def setup_array(count):
     node_grp.links.new(comparisonString.outputs[0], joinStrings.inputs[1])
     node_grp.links.new(arrayCounter.outputs[0], joinStrings.inputs[1])
     node_grp.links.new(arrayString.outputs[0], joinStrings.inputs[1])
+    
+    #add keyframe on frame 0 for comparison and array counter
+    comparisonCounter.inputs[0].keyframe_insert(data_path='default_value', frame=0)
+    arrayCounter.inputs[0].keyframe_insert(data_path='default_value', frame=0)
 
     #fill arrays with numbers between 1 & count
     ran = list(range(0,count-1))
@@ -169,6 +174,6 @@ def setup_array(count):
 # Call Functions
 ############################################################
 
-cubes, arrayCounter, comparisonCounter = setup_array(12)
+cubes, arrayCounter, comparisonCounter = setup_array(50)
 
 insertion_sort(cubes, arrayCounter, comparisonCounter)

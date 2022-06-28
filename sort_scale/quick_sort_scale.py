@@ -129,6 +129,10 @@ def setup_array(count):
     node_grp.links.new(comparisonString.outputs[0], joinStrings.inputs[1])
     node_grp.links.new(arrayCounter.outputs[0], joinStrings.inputs[1])
     node_grp.links.new(arrayString.outputs[0], joinStrings.inputs[1])
+    
+    #add keyframe on frame 0 for comparison and array counter
+    comparisonCounter.inputs[0].keyframe_insert(data_path='default_value', frame=0)
+    arrayCounter.inputs[0].keyframe_insert(data_path='default_value', frame=0)
 
     #fill arrays with numbers between 1 & count
     ran = list(range(0,count-1))
@@ -172,7 +176,7 @@ def setup_array(count):
 # Call Functions
 ############################################################
 
-cubes, arrayCounter, comparisonCounter = setup_array(20)
+cubes, arrayCounter, comparisonCounter = setup_array(50)
 
-iframe = 0
+iframe = 1
 quick_sort(cubes, 0, len(cubes) - 1, arrayCounter, comparisonCounter)
