@@ -91,8 +91,7 @@ In essence, each item “bubbles” up to the location where it belongs.
 
 | <a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_scale/bubble_sort_scale.py" target="_blank">bubble_sort_scale.py</a>|<a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_color/bubble_sort_color.py" target="_blank">bubble_sort_color.py</a>|<a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_circle/bubble_sort_circle.py" target="_blank">bubble_sort_circle.py</a>| 
 | ------------- |-------------|-------------| 
-| ![BubbleSort2](https://user-images.githubusercontent.com/78089013/174035707-e1475bd4-a3c6-4e74-ba9f-30b57335adfe.gif)|![BubbleColor2](https://user-images.githubusercontent.com/78089013/174149862-2ed3c492-0987-4194-834f-fc5276299bcc.gif)|<img src="./img/bubble_circle.gif">|
-
+|![bubble_scale_opti](https://user-images.githubusercontent.com/78089013/176308250-e75134b8-177a-40bc-b984-5cfa13c09baa.gif)|![BubbleColor2](https://user-images.githubusercontent.com/78089013/174149862-2ed3c492-0987-4194-834f-fc5276299bcc.gif)|<img src="./img/bubble_circle.gif">|
 
 ## Insertion Sort
 
@@ -108,7 +107,7 @@ then the values from the unsorted parts are picked and placed at the correct pos
 
 | <a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_scale/insertion_sort_scale.py" target="_blank">insertion_sort_scale.py</a>|<a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_color/insertion_sort_color.py" target="_blank">insertion_sort_color.py</a>|
 | ------------- |:-------------:| 
-|![InsertionSort2](https://user-images.githubusercontent.com/78089013/174035509-714265d2-4d27-4d77-b809-997f4e233feb.gif)|![InsertionColor](https://user-images.githubusercontent.com/78089013/174154736-ada0e27f-88d0-4707-ba99-14ed967cce21.gif)| 
+|![insertion_scale_opti](https://user-images.githubusercontent.com/78089013/176308303-c76e5296-d91e-4c83-badc-bdb9546c230b.gif)|![InsertionColor](https://user-images.githubusercontent.com/78089013/174154736-ada0e27f-88d0-4707-ba99-14ed967cce21.gif)| 
 
 ## Selection Sort
 
@@ -121,7 +120,7 @@ The selection sort algorithm sorts an array by repeatedly finding the minimum el
 
 |<a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_scale/selection_sort_scale.py" target="_blank">selection_sort_scale.py</a>|<a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_color/selection_sort_color.py" target="_blank">selection_sort_color.py</a>| 
 | ------------- |:-------------:| 
-|![SelectionSort2](https://user-images.githubusercontent.com/78089013/174033035-b6b9527a-3d12-4844-b066-50b4cb9d11ef.gif)|![SelectionSort2](https://user-images.githubusercontent.com/78089013/174156159-605f5121-06c3-4314-a22c-5f7919bb9c44.gif)| 
+|![selection_sort_opti](https://user-images.githubusercontent.com/78089013/176308368-bdf31895-fae2-49ef-b9ad-8845a7fcba7a.gif)|![SelectionSort2](https://user-images.githubusercontent.com/78089013/174156159-605f5121-06c3-4314-a22c-5f7919bb9c44.gif)| 
 
 ## Heap Sort
 
@@ -137,9 +136,8 @@ Heap sort basically recursively performs two main operations:
   
 |<a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_scale/heap_sort_scale.py" target="_blank">heap_sort_scale.py</a>|<a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_color/heap_sort_color.py" target="_blank">heap_sort_color.py</a>| 
 | ------------- |:-------------:| 
-|![HeapScale](https://user-images.githubusercontent.com/78089013/174625884-ed64292c-c5cf-4fe8-af9f-bddb2e5fa6bf.gif)|![heapColor](https://user-images.githubusercontent.com/78089013/175014980-af6f702b-7206-4bf4-9d00-0a7f7fc5d15d.gif)|   
+|![heap_scale_opti](https://user-images.githubusercontent.com/78089013/176308418-ca1bdf07-9266-429f-a240-2b5484de6f51.gif)|![heapColor](https://user-images.githubusercontent.com/78089013/175014980-af6f702b-7206-4bf4-9d00-0a7f7fc5d15d.gif)|   
   
-
 ## Shell Sort
 <p>
 The shell sort algorithm extends the insertion sort algorithm and is very efficient in sorting widely unsorted arrays.<br>
@@ -156,7 +154,7 @@ This sorting technique works by sorting elements in pairs, far away from each ot
 
 |<a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_scale/shell_sort_scale.py" target="_blank">shell_sort_scale.py</a>|<a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_color/shell_sort_color.py" target="_blank">shell_sort_color.py</a>| 
 | ------------- |:-------------:| 
-|![ShellSort2](https://user-images.githubusercontent.com/78089013/174032744-6d968c18-8fdb-4268-937f-55e910f8c4d5.gif)|![ShellColor](https://user-images.githubusercontent.com/78089013/174157836-a4571ad7-0fd1-4237-9fb2-dc2d730a64c7.gif)| 
+|![shell_scale_opti](https://user-images.githubusercontent.com/78089013/176308477-b31cd21f-e7b7-43ca-b663-ecd991f1f5dd.gif)|![ShellColor](https://user-images.githubusercontent.com/78089013/174157836-a4571ad7-0fd1-4237-9fb2-dc2d730a64c7.gif)| 
 
 ## Merge Sort
 
@@ -168,10 +166,9 @@ The sub-lists are divided again and again into halves until the list cannot be d
 Then we combine the pair of one element lists into two-element lists, sorting them in the process.<br>
 The sorted two-element pairs is merged into the four-element lists, and so on until we get the sorted list.
 
-
 | <a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_scale/merge_sort_scale.py" target="_blank">merge_sort_scale.py</a>|<a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_color/merge_sort_color.py" target="_blank">merge_sort_color.py</a>| 
 | ------------- |:-------------:| 
-|![MergeSort2](https://user-images.githubusercontent.com/78089013/174032376-9b9768aa-5891-468e-a7a9-1d494374c5a4.gif)|![MergeColor2](https://user-images.githubusercontent.com/78089013/174161064-3fff2b70-90db-425c-acab-0d87040ec205.gif)| 
+|![merge_scale_opti](https://user-images.githubusercontent.com/78089013/176308527-78abf018-f756-475d-bae9-32b93b47fb17.gif)|![MergeColor2](https://user-images.githubusercontent.com/78089013/174161064-3fff2b70-90db-425c-acab-0d87040ec205.gif)| 
 
 ## Quick Sort
 
@@ -189,8 +186,8 @@ All this should be done in linear time.
 
 | <a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_scale/quick_sort_scale.py" target="_blank">quick_sort_scale.py</a>|<a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_color/quick_sort_color.py" target="_blank">quick_sort_color.py</a>| 
 | ------------- |:-------------:| 
-|![QuickSort2](https://user-images.githubusercontent.com/78089013/174031317-2c261df1-6786-42e5-be08-1a7f5fccbca6.gif)|![QuickColor](https://user-images.githubusercontent.com/78089013/174161905-a3a2d1bd-0064-4e23-92b3-50da150c6f0c.gif)| 
-
+|![quick_scale_opti](https://user-images.githubusercontent.com/78089013/176308577-3c13996b-7443-4b67-838c-7de3dc36311f.gif)|![QuickColor](https://user-images.githubusercontent.com/78089013/174161905-a3a2d1bd-0064-4e23-92b3-50da150c6f0c.gif)| 
+  
 Big O
 =====
 
