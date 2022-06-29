@@ -10,6 +10,7 @@ Table of contents
    * [Introduction](#introduction)
       * [Description](#description)
       * [Getting Started](#getting-started)
+      * [Limitations](#limitations)
       * [Possible Updates](#possible-updates)
    * [Sorting Algorithms](#sorting-algorithms)
       * [Bubble Sort](#bubble-sort)
@@ -47,6 +48,12 @@ The four folders <strong>(sort_circle, sort_color, sort_combined, sort_scale)</s
 <li>Click the play button to run the script.</li>
 </ol>
 
+## Limitations
+These visualizations don't show the efficiency of the algorithms.<br>
+They only visualize movement of the elements within the array.<br>
+But the array access and comparison counters are indicators of the time complexity of the algorithms.<br>
+For more information about the time complexity, you can take a look at the [Big O Table](#table-of-sorting-algorithms).<br>
+
 ## Possible Updates
 
 Below I compiled a list of features that could be implemented in the future. 
@@ -65,7 +72,6 @@ Below I compiled a list of features that could be implemented in the future.
 </ul>
 
 <strong>Contributions to this project with either ideas from the list or your own are welcome.</strong>
-
 
 <div align="center">
   
@@ -90,11 +96,9 @@ Bubble sort is one of the most straightforward sorting algorithms, it makes mult
 In essence, each item “bubbles” up to the location where it belongs.
 </p>
 
-| <a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_scale/bubble_sort_scale.py" target="_blank">bubble_sort_scale.py</a>|<a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_color/bubble_sort_color.py" target="_blank">bubble_sort_color.py</a>|
-| ------------- |-------------|
-|![bubble_scale_opti](https://user-images.githubusercontent.com/78089013/176308250-e75134b8-177a-40bc-b984-5cfa13c09baa.gif)|![bubble_color_opti](https://user-images.githubusercontent.com/78089013/176433216-9b3b09c6-12ce-4713-bee9-ecbab979efbd.gif)|
-
-
+| <a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_scale/bubble_sort_scale.py" target="_blank">bubble_sort_scale.py</a>|<a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_color/bubble_sort_color.py" target="_blank">bubble_sort_color.py</a>|<a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_circle/bubble_sort_color.py" target="_blank">bubble_sort_circle.py</a>|
+| ------------- |-------------|------------|
+|![bubble_scale_opti](https://user-images.githubusercontent.com/78089013/176308250-e75134b8-177a-40bc-b984-5cfa13c09baa.gif)|![bubble_color_opti](https://user-images.githubusercontent.com/78089013/176433216-9b3b09c6-12ce-4713-bee9-ecbab979efbd.gif)|![bubble_circle_perf](https://user-images.githubusercontent.com/78089013/176554030-355ece1a-9560-4928-bbf2-40445f1fe33e.gif)|
 
 ## Insertion Sort
 
@@ -121,9 +125,12 @@ The algorithm maintains two subarrays in a given array.
 </ul>
 <p>In every iteration of selection sort, the minimum element (considering ascending order) from the unsorted subarray is picked and moved to the sorted subarray.</p>
 
-|<a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_scale/selection_sort_scale.py" target="_blank">selection_sort_scale.py</a>|<a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_color/selection_sort_color.py" target="_blank">selection_sort_color.py</a>| 
-| ------------- |:-------------:| 
-|![selection_sort_opti](https://user-images.githubusercontent.com/78089013/176308368-bdf31895-fae2-49ef-b9ad-8845a7fcba7a.gif)|![selection_color_opti](https://user-images.githubusercontent.com/78089013/176435219-96aa4818-4ae5-411e-916c-69a3285e6f14.gif)| 
+|<a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_scale/selection_sort_scale.py" target="_blank">selection_sort_scale.py</a>|<a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_color/selection_sort_color.py" target="_blank">selection_sort_color.py</a>|<a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_circle/selection_sort_circle.py" target="_blank">selection_sort_circle.py</a>|
+| ------------- |:-------------:|-------|
+|![selection_sort_opti](https://user-images.githubusercontent.com/78089013/176308368-bdf31895-fae2-49ef-b9ad-8845a7fcba7a.gif)|![selection_color_opti](https://user-images.githubusercontent.com/78089013/176435219-96aa4818-4ae5-411e-916c-69a3285e6f14.gif)|![selection_circle_perf](https://user-images.githubusercontent.com/78089013/176554628-3c754a53-aca4-46ff-a015-0b8a6dac2999.gif)|
+
+
+
 
 ## Heap Sort
 
@@ -168,9 +175,9 @@ The sub-lists are divided again and again into halves until the list cannot be d
 Then we combine the pair of one element lists into two-element lists, sorting them in the process.<br>
 The sorted two-element pairs is merged into the four-element lists, and so on until we get the sorted list.
 
-| <a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_scale/merge_sort_scale.py" target="_blank">merge_sort_scale.py</a>|<a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_color/merge_sort_color.py" target="_blank">merge_sort_color.py</a>| 
-| ------------- |:-------------:| 
-|![merge_scale_opti](https://user-images.githubusercontent.com/78089013/176308527-78abf018-f756-475d-bae9-32b93b47fb17.gif)|![merge_color_opti](https://user-images.githubusercontent.com/78089013/176433465-66af0062-7425-4a60-8a4d-b49095d6c0cb.gif)| 
+| <a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_scale/merge_sort_scale.py" target="_blank">merge_sort_scale.py</a>|<a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_color/merge_sort_color.py" target="_blank">merge_sort_color.py</a>|<a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_circle/merge_sort_circle.py" target="_blank">merge_sort_circle.py</a>|
+| ------------- |:-------------:|------------|
+|![merge_scale_opti](https://user-images.githubusercontent.com/78089013/176308527-78abf018-f756-475d-bae9-32b93b47fb17.gif)|![merge_color_opti](https://user-images.githubusercontent.com/78089013/176433465-66af0062-7425-4a60-8a4d-b49095d6c0cb.gif)|![merge_circle_perf](https://user-images.githubusercontent.com/78089013/176554327-0ed04372-5aa5-4236-b8bb-47d5d31d54a1.gif)|
 
 ## Quick Sort
 
@@ -186,9 +193,9 @@ Like Merge Sort, Quick Sort is a Divide and Conquer algorithm. It picks an eleme
 The key process in quickSort is <strong>partition()</strong>. Target of partitions is, given an array and an element x of array as pivot, put x at its correct position in sorted array and put all smaller elements (smaller than x) before x, and put all greater elements (greater than x) after x.<br>
 All this should be done in linear time.
 
-| <a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_scale/quick_sort_scale.py" target="_blank">quick_sort_scale.py</a>|<a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_color/quick_sort_color.py" target="_blank">quick_sort_color.py</a>| 
-| ------------- |:-------------:| 
-|![quick_scale_opti](https://user-images.githubusercontent.com/78089013/176308577-3c13996b-7443-4b67-838c-7de3dc36311f.gif)|![quick_color_opti](https://user-images.githubusercontent.com/78089013/176433517-cc0cc985-c60d-42e9-a5b0-ecbe8c2621bf.gif)| 
+| <a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_scale/quick_sort_scale.py" target="_blank">quick_sort_scale.py</a>|<a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_color/quick_sort_color.py" target="_blank">quick_sort_color.py</a>|<a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_circle/quick_sort_circle.py" target="_blank">quick_sort_circle.py</a>|
+| ------------- |:-------------:|--------|
+|![quick_scale_opti](https://user-images.githubusercontent.com/78089013/176308577-3c13996b-7443-4b67-838c-7de3dc36311f.gif)|![quick_color_opti](https://user-images.githubusercontent.com/78089013/176433517-cc0cc985-c60d-42e9-a5b0-ecbe8c2621bf.gif)|![quick_circle_perf](https://user-images.githubusercontent.com/78089013/176554458-2d7b97ad-8c00-4ab6-b988-4d74fa466994.gif)|
 
 Big O
 =====
