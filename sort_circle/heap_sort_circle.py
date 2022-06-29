@@ -8,39 +8,86 @@ import numpy as np
 import colorsys
 
 ############################################################
-# Bubble Sort Algorithm
+# Heap Sort Algorithm
 ############################################################
         
-def bubble_sort(arr, count):
-    for i in range(count):    
+def heapify(arr, n, i):
+    
+    global iframe
+    
+    largest = i  # Initialize largest as root
+    l = 2 * i + 1     # left = 2*i + 1
+    r = 2 * i + 2     # right = 2*i + 2
+  
+    try:
+
+        hsv1 = mat_to_hsv(arr[largest])
+        hsv2 = mat_to_hsv(arr[l])
         
-        #insert keyframe for every cube on every frame
-        for cube in arr:
-            cube.keyframe_insert(data_path="rotation_euler", frame=i) 
-
-        already_sorted = True
-        for j in range(count - i -1):
-          
-            hsv1 = mat_to_hsv(arr[j])
-            hsv2 = mat_to_hsv(arr[j + 1])
-                        
-            #compare first colorarray values
-            if hsv1 > hsv2: 
-            
-                #change location & insert keyframes based on bubble sort
-                arr[j].rotation_euler.y = math.radians((j+1)*2)
-                arr[j].keyframe_insert(data_path="rotation_euler", frame=i+1)
-
-                arr[j+1].rotation_euler.y = math.radians(j*2)
-                arr[j+1].keyframe_insert(data_path="rotation_euler", frame=i+1)       
+    except:
+        print("l to big")
+        
+    # See if left child of root exists and is greater than root
+    if l < n and hsv1 < hsv2:
+        largest = l
+  
+    try:
+        hsv1 = mat_to_hsv(arr[largest])
+        hsv2 = mat_to_hsv(arr[r])
                 
-                #rearrange arrays
-                arr[j], arr[j + 1] = arr[j + 1], arr[j]
-                already_sorted = False
-                
-        if already_sorted:
-            break
+    except:
+        print("r to big")
 
+    # See if right child of root exists and is greater than root
+    if r < n and hsv1 < hsv2:
+        largest = r
+  
+    # Change root, if needed
+    if largest != i:
+        arr[i], arr[largest] = arr[largest], arr[i]  # swap
+        
+        a = arr[i].rotation_euler.y 
+        b = arr[largest].rotation_euler.y 
+           
+        arr[i].rotation_euler.y = b
+        arr[largest].rotation_euler.y = a
+        
+        for cube in planes:
+            cube.keyframe_insert(data_path="rotation_euler", frame=iframe) 
+        
+        iframe += 1
+        
+        # Heapify the root.
+        heapify(arr, n, largest)
+  
+# The main function to sort an array of given size
+def heap_sort(arr):
+   
+    n = len(arr)
+
+    global iframe
+    
+    # Build a maxheap.
+    for i in range(n//2 - 1, -1, -1):
+        heapify(arr, n, i)
+  
+    # One by one extract elements
+    for i in range(n-1, 0, -1):
+        arr[i], arr[0] = arr[0], arr[i]  # swap
+        
+        a = arr[i].rotation_euler.y
+        b = arr[0].rotation_euler.y
+        
+        arr[i].rotation_euler.y = b
+        arr[0].rotation_euler.y = a
+        
+        for cube in planes:
+            cube.keyframe_insert(data_path="rotation_euler", frame=iframe) 
+        
+        iframe += 1
+        
+        heapify(arr, i, 0)
+        
 ###########################################################
 # Convert RGB to single HSV from Material 
 ###########################################################
@@ -214,4 +261,5 @@ def setup_array(count):
 #setup_array(number of planes)
 planes, count = setup_array(180)
 
-bubble_sort(planes, count)     
+iframe= 0
+heap_sort(planes)

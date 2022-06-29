@@ -8,38 +8,110 @@ import numpy as np
 import colorsys
 
 ############################################################
-# Bubble Sort Algorithm
+# Merge Sort Algorithm
 ############################################################
-        
-def bubble_sort(arr, count):
-    for i in range(count):    
-        
-        #insert keyframe for every cube on every frame
-        for cube in arr:
-            cube.keyframe_insert(data_path="rotation_euler", frame=i) 
 
-        already_sorted = True
-        for j in range(count - i -1):
-          
-            hsv1 = mat_to_hsv(arr[j])
-            hsv2 = mat_to_hsv(arr[j + 1])
-                        
-            #compare first colorarray values
-            if hsv1 > hsv2: 
+def merge(arr, l, m, r):
+    
+    global planes
+    global iframe
+
+    n1 = m - l + 1
+    n2 = r - m
+ 
+    #create temp arrays
+    L = [0] * (n1)
+    R = [0] * (n2)
+     
+    #copy data to temp arrays L[] and R[]
+    for i in range(0, n1):
+        
+        L[i] = arr[l + i]
+
+    for j in range(0, n2):
+
+        R[j] = arr[m + 1 + j]
+
+    #merge the temp arrays back into arr[l..r]
+    i = 0     #initial index of first subarray
+    j = 0     #initial index of second subarray
+    k = l     #initial index of merged subarray
+    
+    while i < n1 and j < n2:
+        
+        
+        hsv1 = mat_to_hsv(L[i])
+        hsv2 = mat_to_hsv(R[j])
             
-                #change location & insert keyframes based on bubble sort
-                arr[j].rotation_euler.y = math.radians((j+1)*2)
-                arr[j].keyframe_insert(data_path="rotation_euler", frame=i+1)
+        if hsv1 <= hsv2:
+            arr[k] = L[i]
+            
+            L[i].rotation_euler.y = math.radians(k * 2)
+            
+            i += 1
+        else:
+            arr[k] = R[j]
+            
+            R[j].rotation_euler.y = math.radians(k * 2)
+            
+            j += 1
+        k += 1
 
-                arr[j+1].rotation_euler.y = math.radians(j*2)
-                arr[j+1].keyframe_insert(data_path="rotation_euler", frame=i+1)       
-                
-                #rearrange arrays
-                arr[j], arr[j + 1] = arr[j + 1], arr[j]
-                already_sorted = False
-                
-        if already_sorted:
-            break
+        for cube in planes:
+            cube.keyframe_insert(data_path="rotation_euler", frame=iframe) 
+        for cube in L:
+            cube.keyframe_insert(data_path="rotation_euler", frame=iframe)
+        for cube in R:
+            cube.keyframe_insert(data_path="rotation_euler", frame=iframe)
+
+        iframe += 1
+
+    #copy the remaining elements of L[], if there are any
+    while i < n1:
+        arr[k] = L[i]
+        
+        L[i].rotation_euler.y = math.radians(k * 2)
+        
+        x=0
+        for cube in planes:
+            cube.keyframe_insert(data_path="rotation_euler", frame=iframe) 
+        for cube in L:
+            cube.keyframe_insert(data_path="rotation_euler", frame=iframe)
+        for cube in R:
+            cube.keyframe_insert(data_path="rotation_euler", frame=iframe)
+        iframe += 1
+   
+        i += 1
+        k += 1
+ 
+    #copy the remaining elements of R[], if there are any
+    while j < n2:
+        arr[k] = R[j]
+        
+        R[j].rotation_euler.y = math.radians(k * 2)
+        
+        for cube in planes:
+            cube.keyframe_insert(data_path="rotation_euler", frame=iframe) 
+        for cube in L:
+            cube.keyframe_insert(data_path="rotation_euler", frame=iframe)
+        for cube in R:
+            cube.keyframe_insert(data_path="rotation_euler", frame=iframe)
+        iframe+=1
+ 
+        j += 1
+        k += 1
+
+#l is for left index and r is right index of the sub-array of arr to be sorted    
+def merge_sort(arr, l, r):
+    if l < r:
+ 
+        #same as (l+r)//2, but avoids overflow for large l and h
+        m = l+(r-l)//2
+        
+        #sort first and second halves
+        merge_sort(arr, l, m)
+        merge_sort(arr, m+1, r)
+        merge(arr, l, m, r)
 
 ###########################################################
 # Convert RGB to single HSV from Material 
@@ -214,4 +286,5 @@ def setup_array(count):
 #setup_array(number of planes)
 planes, count = setup_array(180)
 
-bubble_sort(planes, count)     
+iframe = 0
+merge_sort(planes, 0, len(planes)-1)     

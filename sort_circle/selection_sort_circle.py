@@ -8,38 +8,35 @@ import numpy as np
 import colorsys
 
 ############################################################
-# Bubble Sort Algorithm
+# Selection Sort Algorithm
 ############################################################
         
-def bubble_sort(arr, count):
-    for i in range(count):    
+def selection_sort(cubes):
+    
+    iframe = 0
+    
+    for i in range(0, len(cubes)): 
+        min_idx = i  
         
-        #insert keyframe for every cube on every frame
-        for cube in arr:
-            cube.keyframe_insert(data_path="rotation_euler", frame=i) 
-
-        already_sorted = True
-        for j in range(count - i -1):
-          
-            hsv1 = mat_to_hsv(arr[j])
-            hsv2 = mat_to_hsv(arr[j + 1])
-                        
-            #compare first colorarray values
-            if hsv1 > hsv2: 
+        for cube in cubes:
+            cube.keyframe_insert(data_path="rotation_euler", frame= iframe)
+        
+        for j in range(i , len(cubes)):
             
-                #change location & insert keyframes based on bubble sort
-                arr[j].rotation_euler.y = math.radians((j+1)*2)
-                arr[j].keyframe_insert(data_path="rotation_euler", frame=i+1)
-
-                arr[j+1].rotation_euler.y = math.radians(j*2)
-                arr[j+1].keyframe_insert(data_path="rotation_euler", frame=i+1)       
-                
-                #rearrange arrays
-                arr[j], arr[j + 1] = arr[j + 1], arr[j]
-                already_sorted = False
-                
-        if already_sorted:
-            break
+            hsv1 = mat_to_hsv(cubes[min_idx])
+            hsv2 = mat_to_hsv(cubes[j])
+            
+            if hsv1 > hsv2:   
+                min_idx = j
+        
+        cubes[i].rotation_euler.y = math.radians(min_idx*2)
+        cubes[min_idx].rotation_euler.y = math.radians(i*2)
+        
+        cubes[i].keyframe_insert(data_path="rotation_euler", frame= iframe)
+        cubes[min_idx].keyframe_insert(data_path="rotation_euler", frame= iframe)
+        iframe +=1
+        
+        cubes[i], cubes[min_idx] = cubes[min_idx], cubes[i]
 
 ###########################################################
 # Convert RGB to single HSV from Material 
@@ -212,6 +209,6 @@ def setup_array(count):
 ############################################################
 
 #setup_array(number of planes)
-planes, count = setup_array(180)
+planes, count = setup_array(180)#only 360 x n is valid
 
-bubble_sort(planes, count)     
+selection_sort(planes)     

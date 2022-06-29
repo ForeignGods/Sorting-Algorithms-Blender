@@ -8,38 +8,69 @@ import numpy as np
 import colorsys
 
 ############################################################
-# Bubble Sort Algorithm
+# Quick Sort Algorithm
 ############################################################
-        
-def bubble_sort(arr, count):
-    for i in range(count):    
-        
-        #insert keyframe for every cube on every frame
-        for cube in arr:
-            cube.keyframe_insert(data_path="rotation_euler", frame=i) 
 
-        already_sorted = True
-        for j in range(count - i -1):
-          
-            hsv1 = mat_to_hsv(arr[j])
-            hsv2 = mat_to_hsv(arr[j + 1])
-                        
-            #compare first colorarray values
-            if hsv1 > hsv2: 
+# function to find the partition position
+def partition(array, low, high):
+    
+    global iframe
+           
+    pivot = array[(high + low) // 2]
+    
+    # pointer for greater element
+    i = low 
+    j = high
+    while True:
+        
+        hsv1 = mat_to_hsv(array[i])
+        hsv2 = mat_to_hsv(pivot)
+        
+        while hsv1 < hsv2:
+            i += 1
+            hsv1 = mat_to_hsv(array[i])
+            hsv2 = mat_to_hsv(pivot)
+        
+        hsv3 = mat_to_hsv(array[j])
+        hsv4 = mat_to_hsv(pivot)
+        
+        while hsv3 > hsv4:
+            j -= 1
+            hsv3 = mat_to_hsv(array[j])
+            hsv4 = mat_to_hsv(pivot)
+                    
+        if i >= j:
+            return j
+        
+        else:
+            iframe += 1
+            for cube in planes:
+                cube.keyframe_insert(data_path="rotation_euler", frame=iframe)
+        
+        array[i].rotation_euler.y = math.radians(j * 2)
+        array[j].rotation_euler.y = math.radians(i * 2)
             
-                #change location & insert keyframes based on bubble sort
-                arr[j].rotation_euler.y = math.radians((j+1)*2)
-                arr[j].keyframe_insert(data_path="rotation_euler", frame=i+1)
+        array[i].keyframe_insert(data_path="rotation_euler", frame=iframe)
+        array[j].keyframe_insert(data_path="rotation_euler", frame=iframe)
+                            
+        # swapping element at i with element at j
+        array[i], array[j] = array[j], array[i]
+        i+=1;
+        j-=1;
 
-                arr[j+1].rotation_euler.y = math.radians(j*2)
-                arr[j+1].keyframe_insert(data_path="rotation_euler", frame=i+1)       
-                
-                #rearrange arrays
-                arr[j], arr[j + 1] = arr[j + 1], arr[j]
-                already_sorted = False
-                
-        if already_sorted:
-            break
+# function to perform quicksort
+def quick_sort(array, low, high):
+    if low < high: 
+        # find pivot element such that
+        # element smaller than pivot are on the left
+        # element greater than pivot are on the right
+        piv = partition(array, low, high)
+        
+        # recursive call on the left of pivot
+        quick_sort(array, low, piv)
+
+        # recursive call on the right of pivot
+        quick_sort(array, piv + 1, high)
 
 ###########################################################
 # Convert RGB to single HSV from Material 
@@ -214,4 +245,5 @@ def setup_array(count):
 #setup_array(number of planes)
 planes, count = setup_array(180)
 
-bubble_sort(planes, count)     
+iframe = 0
+quick_sort(planes, 0, count - 1)     
