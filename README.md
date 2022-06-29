@@ -74,8 +74,9 @@ Sorting Algorithms
   
 |<a href="https://github.com/ForeignGods/Sorting-Algorithms-Blender/blob/main/sort_combined/combined_sort_cube.py" target="_blank">combined_sort_cube.py</a>|
 | ------------- |
-|<img src="https://user-images.githubusercontent.com/78089013/175064056-5a766e7b-2804-4ed6-b05d-786d26ebcbfb.gif" width="480" height="270">|
+|![cube_sort_opti](https://user-images.githubusercontent.com/78089013/176444887-4d68b8df-cc91-4415-b3d4-8540303f284e.gif)|
   
+
 </div>
 
 ## Bubble Sort
