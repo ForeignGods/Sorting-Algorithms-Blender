@@ -24,6 +24,7 @@ Table of contents
       * [What is Big O Notation?](#what-is-big-o-notation)
       * [Time Complexity Notations](#time-complexity-notations)
       * [Table of Sorting Algorithms](#table-of-sorting-algorithms)
+      * [Big O Complexity Chart](#big-o-complexity-chart)
 <!--te-->
 
 Introduction
@@ -354,3 +355,9 @@ However, if the value of <strong>"k"</strong> is not already known then it may b
    </tr>
 
 </table>
+
+### Big O Complexity Chart
+
+![graph](https://user-images.githubusercontent.com/78089013/176728121-e43b51b8-8bdd-4d0a-8376-62662e26b813.svg)
+
+
